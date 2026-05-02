@@ -1,0 +1,7 @@
+courses:
+  - title: "AI Course"
+    slug: "ai-course"
+    description: "Complete AI Roadmap"
+    lessons:
+      - lesson-1
+      - lesson-2 
