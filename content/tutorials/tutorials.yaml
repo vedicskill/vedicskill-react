@@ -2,6 +2,14 @@ courses:
   - title: "AI Course"
     slug: "ai-course"
     description: "Complete AI Roadmap"
+    level: "Begineer"
     lessons:
       - lesson-1
       - lesson-2 
+  
+  - title: "Visual AI: Computer Vision with Generative AI and LLMs"
+    slug: "visual-ai"
+    description: "Complete comprehensive Computer Vision with Generative AI & LLMs"
+    level: "Begineer"
+    lessons:
+      - intro
