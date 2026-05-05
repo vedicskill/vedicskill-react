@@ -76,3 +76,20 @@ export default async function LessonPage({
     </div>
   );
 }
+
+export async function generateMetadata({ params }: any) {
+  const { course, lesson } = await params;
+
+  const data = await getMarkdownContent(
+    `content/tutorials/${course}/${lesson}.md`
+  );
+
+  return {
+    title: data.meta.title,
+    description: data.meta.description || "Tutorial lesson",
+    openGraph: {
+    title: data.meta.title,
+    description: data.meta.description,
+  },
+  };
+}

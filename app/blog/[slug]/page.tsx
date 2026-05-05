@@ -28,3 +28,16 @@ export default async function BlogPost({
     </div>
   );
 }
+
+export async function generateMetadata({ params }: any) {
+  const { slug } = await params;
+
+  const data = await getMarkdownContent(
+    `content/blog/${slug}.md`
+  );
+
+  return {
+    title: data.meta.title,
+    description: data.meta.description,
+  };
+}
