@@ -43,7 +43,7 @@ body {
 
 /* Gradient text utility */
 .gradient-text {
-  @apply bg-gradient-to-r from-[#FFFFFF] via-[#86BC25] to-[#a8d63f] bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-[#86BC25] to-[#a8d63f] bg-clip-text text-transparent;
 }
 
 /* Glow effect */
