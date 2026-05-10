@@ -2,14 +2,62 @@ courses:
   - title: "AI Course"
     slug: "ai-course"
     description: "Complete AI Roadmap"
-    level: "Begineer"
-    lessons:
-      - lesson-1
-      - lesson-2 
-  
+    level: "Beginner"
+
+    sections:
+      - title: "Introduction"
+
+        lessons:
+          - title: "Lesson - 1"
+            slug: "lesson-1"
+
+          - title: "Lesson - 2"
+            slug: "lesson-2"
+
   - title: "Visual AI: Computer Vision with Generative AI and LLMs"
     slug: "visual-ai"
     description: "Complete comprehensive Computer Vision with Generative AI & LLMs"
-    level: "Begineer"
-    lessons:
-      - intro
+    level: "Beginner"
+
+    sections:
+      - title: "Getting Started"
+
+        lessons:
+          - title: "Introduction"
+            slug: "intro"
+
+  - title: "Microsoft Copilot Studio"
+    slug: "microsoft-copilot-studio"
+    description: "Master Microsoft Copilot Studio with step-by-step tutorials."
+    level: "Intermediate"
+
+    sections:
+      - title: "Getting Started"
+
+        lessons:
+          - title: "Introduction"
+            slug: "introduction"
+
+          - title: "Access Copilot Studio"
+            slug: "access-copilot-studio"
+
+          - title: "Copilot Studio Interface"
+            slug: "copilot-studio-interface"
+
+      - title: "Build Copilot"
+
+        lessons:
+          - title: "Conversation Topics"
+            slug: "converation-topics"
+
+          - title: "Hello World"
+            slug: "hello-world-bot"
+
+          - title: "Testing Copilot"
+            slug: "testing-copilot"
+
+          - title: "Next Steps"
+            slug: "next-steps"
+
+          - title: "Summary"
+            slug: "summary"
