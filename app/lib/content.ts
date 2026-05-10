@@ -8,26 +8,33 @@ export function getTutorialStructure() {
 }
 
 export function getLessons(course: string) {
-  const dirPath = path.join(
-    process.cwd(),
-    `content/tutorials/${course}`
-  );
+  const dirPath = path.join(process.cwd(), `content/tutorials/${course}`);
 
-  const files = fs.readdirSync(dirPath);
+  function walk(dir: string, base = ""): any[] {
+    const entries = fs.readdirSync(dir);
+    let res: any[] = [];
+    for (const entry of entries) {
+      const filePath = path.join(dir, entry);
+      const stat = fs.statSync(filePath);
+      if (stat.isDirectory()) {
+        res = res.concat(walk(filePath, path.join(base, entry)));
+        continue;
+      }
+      if (entry === "_category_.json") continue;
+      // Only include markdown (.md) files; ignore MDX files after conversion
+      if (!entry.endsWith(".md")) continue;
+      const fileContent = fs.readFileSync(filePath, "utf-8");
+      const { data } = matter(fileContent);
+      const slug = path.join(base, entry.replace(/\.md$/, "")).replace(/\\/g, "/");
+      res.push({
+        slug,
+        title: data.title || slug,
+        order: data.sidebar_position ?? data.order ?? 0,
+      });
+    }
+    return res;
+  }
 
-  const lessons = files.map((file) => {
-    const filePath = path.join(dirPath, file);
-    const fileContent = fs.readFileSync(filePath, "utf-8");
-
-    const { data } = matter(fileContent);
-
-    return {
-      slug: file.replace(".md", ""),
-      title: data.title,
-      order: data.order || 0,
-    };
-  });
-
-  // Sort by order
+  const lessons = walk(dirPath);
   return lessons.sort((a, b) => a.order - b.order);
 }
