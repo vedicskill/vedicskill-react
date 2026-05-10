@@ -89,7 +89,7 @@ export default function CoursesPage() {
       <section className="px-6 md:px-8 py-24 bg-gradient-to-r from-[#000922] via-[#0f1a3a] to-[#86BC25]/10 border-b border-[#86BC25]/30">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[#FFFFFF] via-[#86BC25] to-[#a8d63f] bg-clip-text text-transparent mb-4">
-            Premium Courses
+            Courses
           </h1>
           <p className="text-[#c0c0c0] text-lg max-w-2xl">
             Curated courses from industry experts. Learn skills that matter.
