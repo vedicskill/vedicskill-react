@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
-
+import { GoogleAnalytics } from "@next/third-parties/google";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -25,8 +25,7 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: "Vedicskill",
-    description:
-      "Structured tutorials for AI, Data Science, and Engineering.",
+    description: "Structured tutorials for AI, Data Science, and Engineering.",
     url: "https://vedicskill-react.vercel.app",
     siteName: "Vedicskill",
     type: "website",
@@ -47,19 +46,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} bg-[#000922] text-white flex flex-col min-h-screen antialiased`}>
-        
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} bg-[#000922] text-white flex flex-col min-h-screen antialiased`}
+      >
+        {/*GoogleAnalytics*/}
+        <GoogleAnalytics gaId="G-CDYJXR6P96" />
         {/* Navigation */}
         <Navbar />
-        
+
         {/* Main Content */}
-        <main className="flex-1">
-          {children}
-        </main>
+        <main className="flex-1">{children}</main>
 
         {/* Footer */}
         <Footer />
-
       </body>
     </html>
   );
