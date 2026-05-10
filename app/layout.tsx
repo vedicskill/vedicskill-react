@@ -19,14 +19,16 @@ export const metadata: Metadata = {
     default: "Vedicskill",
     template: "%s | Vedicskill",
   },
+
   description:
     "Learn AI, Data Science, and Engineering with structured tutorials and real-world projects.",
-  metadataBase: new URL("https://vedicskill-react.vercel.app"),
+
+  metadataBase: new URL("https://vedicskill.com"),
 
   openGraph: {
     title: "Vedicskill",
     description: "Structured tutorials for AI, Data Science, and Engineering.",
-    url: "https://vedicskill-react.vercel.app",
+    url: "https://vedicskill.com",
     siteName: "Vedicskill",
     type: "website",
   },
