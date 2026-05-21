@@ -39,16 +39,16 @@ export default async function LessonPage({
 
         {/* Title */}
         <div className="mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#000922] leading-tight mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#161616] leading-tight mb-4">
             {data.meta.title}
           </h1>
-          <div className="h-1 w-20 bg-gradient-to-r from-[#86BC25] to-[#a8d63f] rounded-full" />
+          <div className="h-1 w-20 bg-[#E5E5E5] rounded-full" />
         </div>
 
         {/* Content */}
         <div
           className="prose max-w-none
-            prose-headings:text-[#000922]
+            prose-headings:text-[#161616]
             prose-headings:font-bold
             prose-h1:text-4xl
             prose-h2:text-3xl
@@ -56,45 +56,45 @@ export default async function LessonPage({
             prose-p:text-[#333333]
             prose-p:leading-relaxed
             prose-p:my-4
-            prose-a:text-[#86BC25]
-            prose-a:hover:text-[#6a932f]
-            prose-strong:text-[#000922]
+            prose-a:text-[#161616]
+            prose-a:hover:text-[#666666]
+            prose-strong:text-[#161616]
             prose-strong:font-bold
-            prose-code:text-[#86BC25]
-            prose-code:bg-[#f5f5f5]
+            prose-code:text-[#161616]
+            prose-code:bg-gray-100
             prose-code:px-2
             prose-code:py-1
             prose-code:rounded
             prose-code:font-mono
             prose-code:text-sm
-            prose-pre:bg-[#f5f5f5]
+            prose-pre:bg-gray-50
             prose-pre:border
-            prose-pre:border-[#86BC25]/30
+            prose-pre:border-[#E5E5E5]
             prose-pre:rounded-lg
             prose-pre:overflow-x-auto
             prose-blockquote:border-l-4
-            prose-blockquote:border-[#86BC25]
+            prose-blockquote:border-[#E5E5E5]
             prose-blockquote:text-[#666666]
             prose-blockquote:pl-4
             prose-blockquote:italic
             prose-li:text-[#333333]
-            prose-li:marker:text-[#86BC25]
-            prose-hr:border-[#86BC25]/30
+            prose-li:marker:text-[#161616]
+            prose-hr:border-[#E5E5E5]
             prose-table:text-[#333333]
-            prose-th:bg-[#f5f5f5]
-            prose-th:text-[#000922]
-            prose-th:border-[#86BC25]/30
-            prose-td:border-[#86BC25]/30
+            prose-th:bg-gray-50
+            prose-th:text-[#161616]
+            prose-th:border-[#E5E5E5]
+            prose-td:border-[#E5E5E5]
           "
           dangerouslySetInnerHTML={{ __html: data.contentHtml }}
         />
 
         {/* Navigation */}
-        <div className="mt-16 pt-8 border-t border-[#86BC25]/30 flex justify-between items-center">
+        <div className="mt-16 pt-8 border-t border-[#E5E5E5] flex justify-between items-center">
           {prevLesson ? (
             <Link
               href={`/tutorials/${course}/${prevLesson.slug}`}
-              className="flex items-center gap-2 text-[#86BC25] hover:text-[#6a932f] transition-colors font-semibold group"
+              className="flex items-center gap-2 text-[#161616] hover:text-[#666666] transition-colors font-semibold group"
             >
               <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -108,7 +108,7 @@ export default async function LessonPage({
           {nextLesson ? (
             <Link
               href={`/tutorials/${course}/${nextLesson.slug}`}
-              className="flex items-center gap-2 text-[#86BC25] hover:text-[#6a932f] transition-colors font-semibold group"
+              className="flex items-center gap-2 text-[#161616] hover:text-[#666666] transition-colors font-semibold group"
             >
               {nextLesson.title}
               <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

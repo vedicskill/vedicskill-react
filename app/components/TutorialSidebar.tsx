@@ -39,10 +39,10 @@ export default async function TutorialSidebar({
   );
 
   return (
-    <div className="w-full xl:w-72 flex-none border-r border-[#86BC25]/40 pr-6 sticky top-24 self-start">
-      <div className="bg-white border border-[#86BC25]/40 rounded-lg p-6">
+    <div className="w-full xl:w-72 flex-none border-r border-[#E5E5E5] pr-6 sticky top-24 self-start">
+      <div className="bg-white border border-[#E5E5E5] rounded-lg p-6">
         {/* Course Title */}
-        <h2 className="font-bold text-lg text-[#000922] mb-6 capitalize">
+        <h2 className="font-bold text-lg text-[#161616] mb-6 capitalize">
           {course.replace(/-/g, " ")}
         </h2>
 
@@ -51,7 +51,7 @@ export default async function TutorialSidebar({
           {sidebarSections.map((section: any) => (
             <div key={section.title}>
               {/* Section Title */}
-              <h3 className="text-xs uppercase tracking-wider text-[#808080] font-bold mb-3 px-2">
+              <h3 className="text-xs uppercase tracking-wider text-[#999999] font-bold mb-3 px-2">
                 {section.title}
               </h3>
 
@@ -66,8 +66,8 @@ export default async function TutorialSidebar({
                         href={`/tutorials/${course}/${lesson.slug}`}
                         className={`block px-4 py-3 rounded-lg transition-all duration-300 text-sm font-medium ${
                           isActive
-                            ? "bg-[#86BC25]/30 text-[#86BC25] border border-[#86BC25]/60"
-                            : "text-[#666666] hover:text-[#86BC25] hover:bg-[#86BC25]/10"
+                            ? "bg-[#E5E5E5] text-[#161616] border border-[#D9D9D9]"
+                            : "text-[#666666] hover:text-[#161616] hover:bg-gray-50"
                         }`}
                       >
                         {lesson.title}

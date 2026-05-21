@@ -8,12 +8,12 @@ export default function TutorialsPage() {
   return (
     <div className="w-full">
       {/* HERO */}
-      <section className="px-6 md:px-8 py-24 bg-gradient-to-r from-[#000922] via-[#0f1a3a] to-[#86BC25]/10 border-b border-[#86BC25]/30">
+      <section className="px-6 md:px-8 py-24 bg-white border-b border-[#E5E5E5]">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[#FFFFFF] via-[#86BC25] to-[#a8d63f] bg-clip-text text-transparent mb-4">
+          <h1 className="text-5xl md:text-6xl font-bold text-[#161616] mb-4">
             Structured Tutorials
           </h1>
-          <p className="text-[#c0c0c0] text-lg max-w-2xl">
+          <p className="text-[#666666] text-lg max-w-2xl">
             Comprehensive learning paths to master real-world skills with
             hands-on projects
           </p>
@@ -30,19 +30,19 @@ export default function TutorialsPage() {
                 href={`/tutorials/${course.slug}/${getFirstLesson(course)}`}
                 className="group"
               >
-                <div className="bg-white border border-[#86BC25]/30 rounded-xl p-6 hover:border-[#86BC25]/70 transition-all duration-300 hover:shadow-lg hover:shadow-[#86BC25]/20 h-full flex flex-col">
+                <div className="bg-white border border-[#E5E5E5] rounded-xl p-6 hover:border-[#CCCCCC] transition-all duration-300 shadow-sm h-full flex flex-col">
                   {/* Header accent */}
-                  <div className="h-2 w-full bg-gradient-to-r from-[#86BC25] to-[#a8d63f] rounded-full mb-6 group-hover:h-3 transition-all" />
+                  <div className="h-2 w-full bg-[#E5E5E5] rounded-full mb-6 group-hover:h-3 transition-all" />
 
                   {/* Level Badge */}
                   <div className="inline-flex w-fit mb-4">
-                    <span className="px-3 py-1 text-xs font-bold rounded-full bg-[#86BC25]/20 text-[#86BC25] border border-[#86BC25]/50 transition-colors">
+                    <span className="px-3 py-1 text-xs font-bold rounded-full bg-gray-100 text-[#161616] border border-[#E5E5E5] transition-colors">
                       {course.level}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h2 className="text-2xl md:text-3xl font-bold text-[#000922] group-hover:text-[#86BC25] transition-colors mb-3 flex-1">
+                  <h2 className="text-2xl md:text-3xl font-bold text-[#161616] group-hover:text-[#666666] transition-colors mb-3 flex-1">
                     {course.title}
                   </h2>
 
@@ -52,7 +52,7 @@ export default function TutorialsPage() {
                   </p>
 
                   {/* Meta */}
-                  <div className="flex items-center justify-between pt-4 border-t border-[#86BC25]/20">
+                  <div className="flex items-center justify-between pt-4 border-t border-[#E5E5E5]">
                     <div className="flex items-center gap-2 text-sm text-[#999999]">
                       <svg
                         className="w-4 h-4"
@@ -74,7 +74,7 @@ export default function TutorialsPage() {
                       )}{" "}
                       lessons
                     </div>
-                    <span className="text-[#86BC25] font-semibold group-hover:translate-x-1 transition-transform">
+                    <span className="text-[#161616] font-semibold group-hover:translate-x-1 transition-transform">
                       →
                     </span>
                   </div>
@@ -86,9 +86,9 @@ export default function TutorialsPage() {
       </section>
 
       {/* LEARNING PATH */}
-      <section className="px-6 md:px-8 py-16 bg-gradient-to-b from-[#000922] to-[#0f1a3a] border-t border-[#86BC25]/30">
+      <section className="px-6 md:px-8 py-16 bg-gray-50 border-t border-[#E5E5E5]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#FFFFFF] mb-12">
+          <h2 className="text-3xl font-bold text-[#161616] mb-12">
             Recommended Learning Path
           </h2>
 
@@ -117,18 +117,18 @@ export default function TutorialsPage() {
             ].map((step, i) => (
               <div key={i} className="flex gap-4 md:gap-8">
                 <div className="flex flex-col items-center flex-shrink-0">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#86BC25] to-[#a8d63f] flex items-center justify-center text-[#000922] font-bold text-lg">
+                  <div className="w-12 h-12 rounded-full bg-[#161616] flex items-center justify-center text-white font-bold text-lg">
                     {step.num}
                   </div>
                   {i < 3 && (
-                    <div className="w-0.5 h-16 bg-gradient-to-b from-[#86BC25] to-[#86BC25]/30 mt-2" />
+                    <div className="w-0.5 h-16 bg-[#E5E5E5] mt-2" />
                   )}
                 </div>
                 <div className="pt-3">
-                  <h3 className="text-lg font-bold text-[#FFFFFF] mb-1">
+                  <h3 className="text-lg font-bold text-[#161616] mb-1">
                     {step.title}
                   </h3>
-                  <p className="text-[#c0c0c0]">{step.desc}</p>
+                  <p className="text-[#666666]">{step.desc}</p>
                 </div>
               </div>
             ))}

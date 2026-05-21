@@ -49,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-[#000922] text-white flex flex-col min-h-screen antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-white text-[#161616] flex flex-col min-h-screen antialiased`}
       >
         {/*GoogleAnalytics*/}
         <GoogleAnalytics gaId="G-CDYJXR6P96" />
