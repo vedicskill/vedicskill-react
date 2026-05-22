@@ -11,12 +11,12 @@ export default function BlogPage() {
     <div className="w-full">
       
       {/* HERO */}
-      <section className="px-6 md:px-8 py-24 bg-white border-b border-[#E5E5E5]">
+      <section className="px-6 md:px-8 py-24 bg-white dark:bg-[#0F0F0F] border-b border-[#E8E8E8] dark:border-[#2A2A2A]">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold text-[#161616] mb-4">
+          <h1 className="text-5xl md:text-6xl font-bold text-[#121212] dark:text-white mb-6 tracking-tight">
             VedicSkill Blog
           </h1>
-          <p className="text-[#666666] text-lg max-w-2xl">
+          <p className="text-[#666666] dark:text-[#A0A0A0] text-lg max-w-2xl leading-relaxed">
             Insights, tutorials, and practical knowledge about AI, Data Science, and Engineering
           </p>
         </div>
@@ -24,40 +24,40 @@ export default function BlogPage() {
 
       {/* FEATURED POST */}
       {featuredPost && (
-        <section className="px-6 md:px-8 py-16 bg-gray-50 border-b border-[#E5E5E5]">
+        <section className="px-6 md:px-8 py-16 bg-[#F5F5F5] dark:bg-[#1A1A1A] border-b border-[#E8E8E8] dark:border-[#2A2A2A]">
           <div className="max-w-4xl mx-auto">
             <Link href={`/blog/${featuredPost.slug}`} className="group">
-              <div className="bg-white border border-[#E5E5E5] rounded-xl overflow-hidden hover:border-[#CCCCCC] transition-all duration-300 shadow-sm">
+              <div className="bg-white dark:bg-[#0F0F0F] border border-[#E8E8E8] dark:border-[#2A2A2A] rounded-2xl overflow-hidden hover:shadow-lg hover:border-[#064E3B] dark:hover:border-[#10B981] transition-all duration-300">
                 
                 {/* Featured Image */}
-                <div className="w-full h-72 bg-gray-100 flex items-center justify-center relative overflow-hidden">
-                  <span className="text-6xl font-mono font-bold text-[#CCCCCC] relative z-10">Featured</span>
+                <div className="w-full h-72 bg-[#F5F5F5] dark:bg-[#2A2A2A] flex items-center justify-center relative overflow-hidden">
+                  <span className="text-6xl font-mono font-bold text-[#999999] dark:text-[#707070] relative z-10">Featured</span>
                 </div>
 
                 {/* Content */}
                 <div className="p-8">
                   <div className="flex items-center gap-4 mb-6">
-                    <span className="px-4 py-2 text-sm font-semibold text-[#161616] bg-gray-100 border border-[#E5E5E5] rounded-full">
+                    <span className="px-4 py-2 text-sm font-semibold text-[#064E3B] dark:text-[#10B981] bg-[#F5F5F5] dark:bg-[#2A2A2A] border border-[#E8E8E8] dark:border-[#3A3A3A] rounded-full">
                       Featured Article
                     </span>
-                    <span className="text-sm text-[#999999]">{featuredPost.date}</span>
+                    <span className="text-sm text-[#999999] dark:text-[#707070]">{featuredPost.date}</span>
                   </div>
 
-                  <h2 className="text-3xl md:text-4xl font-bold text-[#161616] group-hover:text-[#666666] transition-colors mb-4">
+                  <h2 className="text-3xl md:text-4xl font-bold text-[#121212] dark:text-white group-hover:text-[#064E3B] dark:group-hover:text-[#10B981] transition-colors mb-4">
                     {featuredPost.title}
                   </h2>
 
-                  <p className="text-lg text-[#666666] mb-6">
+                  <p className="text-lg text-[#666666] dark:text-[#A0A0A0] mb-6 leading-relaxed">
                     {featuredPost.description}
                   </p>
 
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-[#161616] rounded-full flex items-center justify-center text-white font-bold">
+                    <div className="w-12 h-12 bg-[#064E3B] dark:bg-[#10B981] rounded-full flex items-center justify-center text-white dark:text-[#121212] font-bold">
                       VS
                     </div>
                     <div>
-                      <p className="font-semibold text-[#161616]">VedicSkill</p>
-                      <p className="text-sm text-[#999999]">Tech Education</p>
+                      <p className="font-semibold text-[#121212] dark:text-white">VedicSkill</p>
+                      <p className="text-sm text-[#999999] dark:text-[#707070]">Tech Education</p>
                     </div>
                   </div>
                 </div>
@@ -69,33 +69,33 @@ export default function BlogPage() {
 
       {/* RECENT POSTS GRID */}
       {recentPosts.length > 0 && (
-        <section className="px-6 md:px-8 py-16 bg-white border-b border-[#E5E5E5]">
+        <section className="px-6 md:px-8 py-16 bg-white dark:bg-[#0F0F0F] border-b border-[#E8E8E8] dark:border-[#2A2A2A]">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-bold text-[#161616] mb-12">Recent Articles</h2>
+            <h2 className="text-3xl font-bold text-[#121212] dark:text-white mb-12 tracking-tight">Recent Articles</h2>
 
             <div className="grid md:grid-cols-3 gap-6">
               {recentPosts.map((post: any) => (
                 <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
-                  <div className="bg-white border border-[#E5E5E5] rounded-xl overflow-hidden hover:border-[#CCCCCC] transition-all duration-300 shadow-sm h-full flex flex-col">
+                  <div className="bg-white dark:bg-[#1A1A1A] border border-[#E8E8E8] dark:border-[#2A2A2A] rounded-2xl overflow-hidden hover:shadow-lg hover:border-[#064E3B] dark:hover:border-[#10B981] transition-all duration-300 h-full flex flex-col">
                     
                     {/* Post Image */}
-                    <div className="w-full h-40 bg-gray-100 flex items-center justify-center relative overflow-hidden">
-                      <span className="text-3xl font-mono font-bold text-[#CCCCCC] relative z-10">Post</span>
+                    <div className="w-full h-40 bg-[#F5F5F5] dark:bg-[#2A2A2A] flex items-center justify-center relative overflow-hidden">
+                      <span className="text-3xl font-mono font-bold text-[#999999] dark:text-[#707070] relative z-10">Post</span>
                     </div>
 
                     {/* Content */}
                     <div className="p-6 flex flex-col flex-1">
-                      <span className="text-xs text-[#999999] mb-3">{post.date}</span>
+                      <span className="text-xs text-[#999999] dark:text-[#707070] mb-3">{post.date}</span>
                       
-                      <h3 className="text-lg font-bold text-[#161616] group-hover:text-[#666666] transition-colors mb-3 flex-1">
+                      <h3 className="text-lg font-bold text-[#121212] dark:text-white group-hover:text-[#064E3B] dark:group-hover:text-[#10B981] transition-colors mb-3 flex-1">
                         {post.title}
                       </h3>
 
-                      <p className="text-sm text-[#666666] mb-4 flex-1">
+                      <p className="text-sm text-[#666666] dark:text-[#A0A0A0] mb-4 flex-1 leading-relaxed">
                         {post.description}
                       </p>
 
-                      <div className="flex items-center gap-2 text-[#161616] font-semibold group-hover:gap-3 transition-all">
+                      <div className="flex items-center gap-2 text-[#064E3B] dark:text-[#10B981] font-semibold group-hover:gap-3 transition-all">
                         Read More
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />

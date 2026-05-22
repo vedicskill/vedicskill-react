@@ -1,92 +1,146 @@
-/* Import Zed.dev-like font: JetBrains Mono & System fonts */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+/* Premium Enterprise Design System */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
 
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* Light mode (default) */
 :root {
   --background: #FFFFFF;
-  --foreground: #161616;
-  --dark-bg: #F5F5F5;
-  --darker-bg: #F0F0F0;
-
-  /* Monochrome Color Scheme */
-  --primary: #161616;
-  --primary-light: #333333;
-  --accent: #E5E5E5;
-  --accent-light: #CCCCCC;
-  --secondary: #E5E5E5;
-  --secondary-light: #D9D9D9;
+  --foreground: #121212;
+  --primary: #121212;
+  --highlight: #064E3B;
+  --border: #E8E8E8;
+  --surface: #F5F5F5;
+  --surface-hover: #EFEFEF;
   
   /* Text colors */
-  --text-primary: #161616;
+  --text-primary: #121212;
   --text-secondary: #666666;
   --text-muted: #999999;
+  
+  /* Semantic colors */
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --info: #3B82F6;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0F0F0F;
+    --foreground: #FFFFFF;
+    --primary: #FFFFFF;
+    --highlight: #10B981;
+    --border: #2A2A2A;
+    --surface: #1A1A1A;
+    --surface-hover: #252525;
+    
+    --text-primary: #FFFFFF;
+    --text-secondary: #A0A0A0;
+    --text-muted: #707070;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
-  --color-accent: var(--accent);
-  --color-secondary: var(--secondary);
+  --color-highlight: var(--highlight);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
   
-  --font-sans: 'Inter', var(--font-geist-sans);
-  --font-mono: 'JetBrains Mono', var(--font-geist-mono);
+  --font-sans: 'IBM Plex Sans', var(--font-geist-sans);
+}
+
+/* Global styles */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Utility classes for monochrome design */
+/* Text utilities */
 .text-primary {
-  @apply text-[#161616];
+  @apply text-[#121212] dark:text-white;
 }
 
 .text-secondary {
-  @apply text-[#666666];
+  @apply text-[#666666] dark:text-[#A0A0A0];
 }
 
-/* Button base styles */
+.text-muted {
+  @apply text-[#999999] dark:text-[#707070];
+}
+
+/* Premium button styles with highlight color */
 .btn-primary {
-  @apply bg-[#161616] text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-all duration-300;
+  @apply px-6 py-3 rounded-2xl font-semibold transition-all duration-300;
+  @apply bg-[#064E3B] text-white hover:bg-[#053D2E] active:scale-95;
+  @apply dark:bg-[#10B981] dark:text-[#121212] dark:hover:bg-[#059669];
 }
 
 .btn-secondary {
-  @apply border border-[#E5E5E5] text-[#161616] px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-300;
+  @apply px-6 py-3 rounded-2xl font-semibold transition-all duration-300;
+  @apply bg-[#F5F5F5] text-[#121212] border border-[#E8E8E8];
+  @apply hover:bg-[#EFEFEF] dark:bg-[#1A1A1A] dark:text-white dark:border-[#2A2A2A] dark:hover:bg-[#252525];
 }
 
 .btn-outline {
-  @apply bg-transparent border-2 border-[#E5E5E5] text-[#161616] hover:bg-gray-50 transition-all;
+  @apply px-6 py-3 rounded-2xl font-semibold border-2 transition-all duration-300;
+  @apply border-[#064E3B] text-[#064E3B] hover:bg-[#064E3B] hover:text-white;
+  @apply dark:border-[#10B981] dark:text-[#10B981] dark:hover:bg-[#10B981] dark:hover:text-[#121212];
 }
 
-/* Card base styles */
+/* Premium card styles */
 .card {
-  @apply bg-white border border-[#E5E5E5] rounded-xl p-6 hover:border-[#CCCCCC] transition-all duration-300 shadow-sm;
+  @apply bg-white dark:bg-[#1A1A1A] border border-[#E8E8E8] dark:border-[#2A2A2A];
+  @apply rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300;
 }
 
-/* Section styles */
+/* Section headers with premium typography */
 .section-header {
-  @apply text-4xl md:text-5xl font-bold text-[#161616] mb-4;
-}
-
-.section-accent {
-  @apply h-1 w-20 bg-[#E5E5E5] rounded-full;
+  @apply text-4xl md:text-5xl font-bold text-[#121212] dark:text-white mb-6 tracking-tight;
 }
 
 .section-subtitle {
-  @apply text-[#666666] mt-4 text-lg;
+  @apply text-lg text-[#666666] dark:text-[#A0A0A0] mt-4 leading-relaxed;
 }
 
-/* Monochrome utilities */
+.section-accent {
+  @apply h-1 w-16 bg-gradient-to-r from-[#064E3B] to-[#064E3B] rounded-full mb-6;
+}
+
+/* Border utilities */
 .border-accent {
-  @apply border-[#E5E5E5];
+  @apply border-[#E8E8E8] dark:border-[#2A2A2A];
 }
 
-.text-accent {
-  @apply text-[#161616];
+/* Surface utilities for premium appearance */
+.surface {
+  @apply bg-[#F5F5F5] dark:bg-[#1A1A1A];
+}
+
+/* Link styles */
+a {
+  @apply transition-colors duration-300;
+}
+
+/* Focus states for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  @apply outline-none ring-2 ring-[#064E3B] ring-offset-2 dark:ring-offset-[#0F0F0F];
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-200 ease-in-out;
 }
 
