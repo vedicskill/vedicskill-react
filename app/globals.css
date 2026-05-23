@@ -176,12 +176,269 @@ a {
 /* Focus states for accessibility */
 button:focus-visible,
 a:focus-visible,
-input:focus-visible {
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
   @apply outline-none ring-2 ring-[#064E3B] ring-offset-2 dark:ring-offset-[#0F0F0F];
 }
 
-/* Smooth transitions */
+/* Skip to main content link (keyboard navigation) */
+.skip-to-main {
+  @apply sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#064E3B] focus:text-white focus:font-semibold;
+}
+
+/* Screen reader only text */
+.sr-only {
+  @apply sr-only;
+}
+
+/* Smooth transitions and animations */
 * {
   @apply transition-colors duration-200 ease-in-out;
 }
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    @apply !transition-none !animate-none;
+  }
+}
+
+/* Selection styles */
+::selection {
+  @apply bg-[#064E3B] text-white dark:bg-[#10B981] dark:text-[#121212];
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[#F5F5F5] dark:bg-[#1A1A1A];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[#D0D0D0] dark:bg-[#333333] rounded-full hover:bg-[#999999] dark:hover:bg-[#555555];
+}
+
+/* Form elements focus states */
+input[type="text"]:focus-visible,
+input[type="email"]:focus-visible,
+input[type="password"]:focus-visible,
+input[type="number"]:focus-visible,
+input[type="search"]:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  @apply outline-none ring-2 ring-[#064E3B] dark:ring-[#10B981] ring-offset-2 dark:ring-offset-[#0F0F0F];
+}
+
+/* Improved text rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Link hover improvements */
+a:not([class]) {
+  @apply underline underline-offset-2 hover:no-underline transition-all duration-300;
+}
+
+/* Image optimization */
+img {
+  @apply max-w-full h-auto block;
+}
+
+/* List styling */
+ul:not([class]),
+ol:not([class]) {
+  @apply list-inside space-y-2;
+}
+
+/* Code block styling */
+code:not([class]) {
+  @apply bg-[#F5F5F5] dark:bg-[#1A1A1A] px-2 py-1 rounded font-mono text-sm;
+}
+
+pre {
+  @apply bg-[#F5F5F5] dark:bg-[#1A1A1A] p-4 rounded-lg overflow-x-auto;
+}
+
+/* Additional Typography Utilities */
+.heading-xs {
+  @apply text-lg font-semibold tracking-tight leading-snug;
+}
+
+.body-xs {
+  @apply text-xs leading-relaxed;
+}
+
+.label-md {
+  @apply text-sm uppercase tracking-wider font-semibold;
+}
+
+/* Additional Button Utilities */
+.btn-ghost {
+  @apply px-6 py-3 rounded-2xl font-semibold transition-all duration-300;
+  @apply text-[#064E3B] hover:bg-[#F5F5F5];
+  @apply dark:text-[#10B981] dark:hover:bg-[#1A1A1A];
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#064E3B] dark:focus-visible:ring-[#10B981] focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#0F0F0F];
+}
+
+.btn-sm {
+  @apply px-4 py-2 text-sm;
+}
+
+.btn-md {
+  @apply px-6 py-3 text-base;
+}
+
+.btn-lg {
+  @apply px-8 py-4 text-lg;
+}
+
+/* Additional Card Utilities */
+.card-interactive {
+  @apply bg-white dark:bg-[#1A1A1A] border border-[#E8E8E8] dark:border-[#2A2A2A];
+  @apply rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300;
+  @apply hover:border-[#064E3B] dark:hover:border-[#10B981] cursor-pointer;
+}
+
+/* Border Utilities */
+.border-light {
+  @apply border-[#E8E8E8];
+}
+
+.border-dark {
+  @apply dark:border-[#2A2A2A];
+}
+
+/* Surface Utilities */
+.surface-muted {
+  @apply bg-white dark:bg-[#0F0F0F];
+}
+
+/* Spacing Utilities */
+.px-container {
+  @apply px-6 md:px-8;
+}
+
+.py-section-sm {
+  @apply py-12 md:py-16;
+}
+
+.py-section-md {
+  @apply py-16 md:py-24;
+}
+
+.py-section-lg {
+  @apply py-24 md:py-32;
+}
+
+.py-section-xl {
+  @apply py-32 md:py-40;
+}
+
+.gap-section-sm {
+  @apply gap-4 md:gap-6;
+}
+
+.gap-section-md {
+  @apply gap-6 md:gap-8;
+}
+
+.gap-section-lg {
+  @apply gap-8 md:gap-12;
+}
+
+/* Grid Utilities */
+.grid-auto {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.grid-2 {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
+.grid-3 {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.grid-4 {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+}
+
+/* Badge Styles */
+.badge {
+  @apply inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold rounded-full;
+  @apply bg-[#F5F5F5] dark:bg-[#1A1A1A] border border-[#E8E8E8] dark:border-[#2A2A2A];
+  @apply text-[#121212] dark:text-white;
+}
+
+.badge-primary {
+  @apply inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold rounded-full;
+  @apply bg-[#064E3B] dark:bg-[#10B981] text-white dark:text-[#121212] border border-[#064E3B] dark:border-[#10B981];
+}
+
+.badge-outline {
+  @apply inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold rounded-full;
+  @apply bg-[#F5F5F5] dark:bg-[#1A1A1A] border border-[#064E3B] dark:border-[#10B981];
+  @apply text-[#064E3B] dark:text-[#10B981];
+}
+
+/* Divider Styles */
+.divider {
+  @apply h-px bg-[#E8E8E8] dark:bg-[#2A2A2A];
+}
+
+.divider-vertical {
+  @apply w-px h-full bg-[#E8E8E8] dark:bg-[#2A2A2A];
+}
+
+/* Focus Ring Utilities */
+.focus-ring {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#064E3B] dark:focus-visible:ring-[#10B981] focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#0F0F0F];
+}
+
+/* Hover Effect Utilities */
+.hover-lift {
+  @apply hover:shadow-lg hover:-translate-y-1 transition-all duration-300;
+}
+
+.hover-subtle {
+  @apply hover:opacity-90 transition-all duration-300;
+}
+
+/* Animation Classes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideInUp 0.3s ease-in-out;
+}
+
 
