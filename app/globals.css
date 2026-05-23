@@ -79,6 +79,47 @@ body {
   @apply text-[#999999] dark:text-[#707070];
 }
 
+/* Typography scales for semantic heading hierarchy */
+.display-xl {
+  @apply text-6xl md:text-7xl font-bold tracking-tight;
+}
+
+.display-lg {
+  @apply text-5xl md:text-6xl font-bold tracking-tight;
+}
+
+.display-md {
+  @apply text-4xl md:text-5xl font-bold tracking-tight;
+}
+
+.heading-lg {
+  @apply text-3xl font-bold tracking-tight;
+}
+
+.heading-md {
+  @apply text-2xl font-bold tracking-tight;
+}
+
+.heading-sm {
+  @apply text-xl font-bold tracking-tight;
+}
+
+.body-lg {
+  @apply text-lg leading-relaxed;
+}
+
+.body-base {
+  @apply text-base leading-relaxed;
+}
+
+.body-sm {
+  @apply text-sm leading-relaxed;
+}
+
+.label {
+  @apply text-xs uppercase tracking-widest font-semibold;
+}
+
 /* Premium button styles with highlight color */
 .btn-primary {
   @apply px-6 py-3 rounded-2xl font-semibold transition-all duration-300;

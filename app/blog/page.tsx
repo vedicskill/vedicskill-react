@@ -111,46 +111,46 @@ export default function BlogPage() {
       )}
 
       {/* ALL POSTS */}
-      <section className="px-6 md:px-8 py-16 bg-white">
+      <section className="px-6 md:px-8 py-16 bg-white dark:bg-[#0F0F0F] border-t border-[#E8E8E8] dark:border-[#2A2A2A]">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#161616] mb-12">All Articles</h2>
+          <h2 className="text-3xl font-bold text-[#121212] dark:text-white mb-12">All Articles</h2>
 
           <div className="space-y-6">
             {(otherPosts.length > 0 ? otherPosts : posts).map((post: any) => (
               <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
-                <div className="border-b border-[#E5E5E5] pb-6 hover:pb-8 transition-all duration-300">
+                <div className="border-b border-[#E8E8E8] dark:border-[#2A2A2A] pb-6 hover:pb-8 transition-all duration-300">
                   
                   <div className="flex items-start gap-4">
                     {/* Avatar */}
-                    <div className="w-12 h-12 bg-[#161616] rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold">
+                    <div className="w-12 h-12 bg-[#064E3B] dark:bg-[#10B981] rounded-full flex-shrink-0 flex items-center justify-center text-white dark:text-[#121212] font-bold">
                       V
                     </div>
 
                     {/* Content */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="font-semibold text-[#161616]">VedicSkill</span>
-                        <span className="text-[#999999]">·</span>
-                        <span className="text-sm text-[#999999]">{post.date}</span>
+                        <span className="font-semibold text-[#121212] dark:text-white">VedicSkill</span>
+                        <span className="text-[#999999] dark:text-[#707070]">·</span>
+                        <span className="text-sm text-[#999999] dark:text-[#707070]">{post.date}</span>
                       </div>
 
-                      <h3 className="text-lg md:text-xl font-bold text-[#161616] group-hover:text-[#666666] transition-colors mb-2">
+                      <h3 className="text-lg md:text-xl font-bold text-[#121212] dark:text-white group-hover:text-[#064E3B] dark:group-hover:text-[#10B981] transition-colors mb-2">
                         {post.title}
                       </h3>
 
-                      <p className="text-[#666666] text-sm md:text-base mb-4 line-clamp-2">
+                      <p className="text-[#666666] dark:text-[#A0A0A0] text-sm md:text-base mb-4 line-clamp-2">
                         {post.description}
                       </p>
 
                       <div className="flex items-center gap-4">
-                        <span className="text-xs text-[#999999] hover:text-[#161616] transition-colors cursor-pointer">👏 128</span>
-                        <span className="text-xs text-[#999999] hover:text-[#161616] transition-colors cursor-pointer">💬 12</span>
-                        <span className="text-xs text-[#999999] hover:text-[#161616] transition-colors cursor-pointer">↗️ Share</span>
+                        <span className="text-xs text-[#999999] dark:text-[#707070] hover:text-[#064E3B] dark:hover:text-[#10B981] transition-colors cursor-pointer">👏 128</span>
+                        <span className="text-xs text-[#999999] dark:text-[#707070] hover:text-[#064E3B] dark:hover:text-[#10B981] transition-colors cursor-pointer">💬 12</span>
+                        <span className="text-xs text-[#999999] dark:text-[#707070] hover:text-[#064E3B] dark:hover:text-[#10B981] transition-colors cursor-pointer">↗️ Share</span>
                       </div>
                     </div>
 
                     {/* Read Time */}
-                    <span className="text-sm text-[#999999] flex-shrink-0">
+                    <span className="text-sm text-[#999999] dark:text-[#707070] flex-shrink-0">
                       5 min read
                     </span>
                   </div>

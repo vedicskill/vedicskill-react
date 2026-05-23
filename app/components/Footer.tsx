@@ -8,9 +8,9 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#064E3B] to-[#053D2E] rounded-xl flex items-center justify-center font-bold text-white">
+              {/* <div className="w-10 h-10 bg-gradient-to-br from-[#064E3B] to-[#053D2E] rounded-xl flex items-center justify-center font-bold text-white">
                 V
-              </div>
+              </div> */}
               <span className="font-bold text-lg text-[#121212] dark:text-white tracking-tight">VedicSkill</span>
             </div>
             <p className="text-[#666666] dark:text-[#A0A0A0] text-sm leading-relaxed">Learn AI, Data Science & Engineering with structured tutorials and real-world projects.</p>

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
+import { ThemeProvider } from "@/app/components/ThemeProvider";
 import { GoogleAnalytics } from "@next/third-parties/google";
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,20 +48,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-white text-[#161616] flex flex-col min-h-screen antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-white dark:bg-[#0F0F0F] text-[#121212] dark:text-white flex flex-col min-h-screen antialiased transition-colors duration-200`}
       >
-        {/*GoogleAnalytics*/}
-        <GoogleAnalytics gaId="G-CDYJXR6P96" />
-        {/* Navigation */}
-        <Navbar />
+        <ThemeProvider>
+          {/*GoogleAnalytics*/}
+          <GoogleAnalytics gaId="G-CDYJXR6P96" />
+          {/* Navigation */}
+          <Navbar />
 
-        {/* Main Content */}
-        <main className="flex-1">{children}</main>
+          {/* Main Content */}
+          <main className="flex-1">{children}</main>
 
-        {/* Footer */}
-        <Footer />
+          {/* Footer */}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

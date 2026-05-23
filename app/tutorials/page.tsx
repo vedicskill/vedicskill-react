@@ -117,18 +117,18 @@ export default function TutorialsPage() {
             ].map((step, i) => (
               <div key={i} className="flex gap-4 md:gap-8">
                 <div className="flex flex-col items-center flex-shrink-0">
-                  <div className="w-12 h-12 rounded-full bg-[#161616] flex items-center justify-center text-white font-bold text-lg">
+                  <div className="w-12 h-12 rounded-full bg-[#064E3B] dark:bg-[#10B981] flex items-center justify-center text-white dark:text-[#121212] font-bold text-lg">
                     {step.num}
                   </div>
                   {i < 3 && (
-                    <div className="w-0.5 h-16 bg-[#E5E5E5] mt-2" />
+                    <div className="w-0.5 h-16 bg-[#E8E8E8] dark:bg-[#2A2A2A] mt-2" />
                   )}
                 </div>
                 <div className="pt-3">
-                  <h3 className="text-lg font-bold text-[#161616] mb-1">
+                  <h3 className="text-lg font-bold text-[#121212] dark:text-white mb-1">
                     {step.title}
                   </h3>
-                  <p className="text-[#666666]">{step.desc}</p>
+                  <p className="text-[#666666] dark:text-[#A0A0A0]">{step.desc}</p>
                 </div>
               </div>
             ))}
