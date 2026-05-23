@@ -1,6 +1,37 @@
 import Link from "next/link";
 import { getAllPosts } from "@/app/lib/blog";
 
+export const metadata = {
+  title: "VedicSkill Blog - AI, Data Science & Engineering Insights",
+  description:
+    "Read latest articles, insights, and practical knowledge about AI, Data Science, and Engineering. Learn from expert tutorials and industry insights.",
+  keywords: [
+    "blog",
+    "articles",
+    "insights",
+    "AI articles",
+    "Data Science blog",
+    "Engineering tips",
+    "tech tutorials",
+  ],
+  openGraph: {
+    title: "VedicSkill Blog - Expert Insights & Tutorials",
+    description:
+      "Discover practical knowledge and expert insights on AI, Data Science, and Engineering through our comprehensive blog.",
+    type: "website",
+    images: [
+      {
+        url: "https://vedicskill.com/og-blog.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://vedicskill.com/blog",
+  },
+};
+
 export default function BlogPage() {
   const posts = getAllPosts();
   const featuredPost = posts[0];

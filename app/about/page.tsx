@@ -1,3 +1,32 @@
+export const metadata = {
+  title: "About VedicSkill - Educational Platform Mission",
+  description:
+    "Learn about VedicSkill's mission to make high-quality tech education accessible. We empower learners with practical skills in AI, Data Science, and Engineering.",
+  keywords: [
+    "about",
+    "mission",
+    "VedicSkill",
+    "educational platform",
+    "tech education",
+  ],
+  openGraph: {
+    title: "About VedicSkill - Our Mission & Vision",
+    description:
+      "Discover VedicSkill's commitment to accessible, practical tech education in AI, Data Science, and Engineering.",
+    type: "website",
+    images: [
+      {
+        url: "https://vedicskill.com/og-about.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://vedicskill.com/about",
+  },
+};
+
 export default function AboutPage() {
   return (
     <div className="w-full">

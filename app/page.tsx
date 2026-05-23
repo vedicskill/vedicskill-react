@@ -4,17 +4,48 @@ import { getAllPosts } from "@/app/lib/blog";
 import { getFirstLesson } from "@/app/lib/course";
 
 export const metadata = {
-  title: "Vedicskill - Learn AI, Data Science & Engineering",
+  title: "Vedicskill - AI, Data Science & Engineering Online Learning Platform",
   description:
-    "Learn AI, Data Science and Engineering with structured tutorials, real-world projects, and practical learning paths to build industry-ready skills.",
+    "Learn AI, Data Science, and Engineering with comprehensive tutorials, real-world projects, and structured learning paths. Master industry-ready skills through hands-on experience and expert guidance.",
+  keywords: [
+    "AI learning",
+    "Data Science tutorials",
+    "Engineering courses",
+    "Online education",
+    "Machine learning",
+    "Python learning",
+  ],
+  openGraph: {
+    title: "Vedicskill - Master AI, Data Science & Engineering",
+    description:
+      "Comprehensive online tutorials and courses in AI, Data Science, and Engineering. Start your learning journey today with structured paths.",
+    type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "https://vedicskill.com/og-image-home.png",
+        width: 1200,
+        height: 630,
+        alt: "Vedicskill Learning Platform",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vedicskill - Learn AI & Data Science",
+    description: "Master AI, Data Science, and Engineering with practical tutorials and projects.",
+  },
+  alternates: {
+    canonical: "https://vedicskill.com/",
+  },
 };
 
 export default function HomePage() {
   const tutorials = getTutorialStructure();
   const posts = getAllPosts().slice(0, 3);
-
+  
   return (
-    <div className="w-full">
+    <div className="w-full bg-white dark:bg-[#0F0F0F] transition-colors duration-300">
       {/* HERO SECTION */}
       <section className="px-6 md:px-8 py-24 md:py-32 lg:py-40 bg-white dark:bg-[#0F0F0F] border-b border-[#E8E8E8] dark:border-[#2A2A2A] relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
@@ -32,7 +63,7 @@ export default function HomePage() {
           <div className="mt-10 md:mt-12 flex flex-wrap gap-4">
             <Link
               href="/tutorials"
-              className="inline-flex items-center justify-center gap-2 bg-[#064E3B] text-white px-6 py-3.5 rounded-2xl font-semibold hover:bg-[#053D2E] active:scale-95 transition-all duration-300 dark:bg-[#10B981] dark:text-[#121212] dark:hover:bg-[#059669] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#064E3B] dark:focus-visible:ring-[#10B981] focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#0F0F0F]"
+              className="inline-flex items-center justify-center gap-2 bg-[#064E3B] text-white px-6 py-3.5 rounded-2xl font-semibold hover:bg-[#053D2E] active:scale-95 transition-all duration-500 ease-out dark:bg-[#10B981] dark:text-[#121212] dark:hover:bg-[#059669] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#064E3B] dark:focus-visible:ring-[#10B981] focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#0F0F0F]"
             >
               Explore Tutorials
               <svg
@@ -53,7 +84,7 @@ export default function HomePage() {
 
             <Link
               href="/courses"
-              className="inline-flex items-center justify-center gap-2 border-2 border-[#064E3B] text-[#064E3B] px-6 py-3 rounded-2xl font-semibold hover:bg-[#064E3B] hover:text-white transition-all duration-300 dark:border-[#10B981] dark:text-[#10B981] dark:hover:bg-[#10B981] dark:hover:text-[#121212] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#064E3B] dark:focus-visible:ring-[#10B981] focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#0F0F0F]"
+              className="inline-flex items-center justify-center gap-2 border-2 border-[#064E3B] text-[#064E3B] px-6 py-3 rounded-2xl font-semibold hover:bg-[#064E3B] hover:text-white transition-all duration-500 ease-out dark:border-[#10B981] dark:text-[#10B981] dark:hover:bg-[#10B981] dark:hover:text-[#121212] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#064E3B] dark:focus-visible:ring-[#10B981] focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#0F0F0F]"
             >
               Browse Courses
             </Link>
@@ -86,12 +117,12 @@ export default function HomePage() {
                 href={`/tutorials/${course.slug}/${getFirstLesson(course)}`}
                 className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#064E3B] dark:focus-visible:ring-[#10B981] rounded-2xl"
               >
-                <div className="bg-white dark:bg-[#0F0F0F] border border-[#E8E8E8] dark:border-[#2A2A2A] rounded-2xl p-6 hover:shadow-lg hover:border-[#064E3B] dark:hover:border-[#10B981] transition-all duration-300 h-full flex flex-col">
+                <div className="bg-white dark:bg-[#0F0F0F] border border-[#E8E8E8] dark:border-[#2A2A2A] rounded-2xl p-6 hover:shadow-lg hover:border-[#064E3B] dark:hover:border-[#10B981] transition-all duration-500 ease-out h-full flex flex-col">
                   {/* Accent line */}
-                  <div className="h-1 w-12 bg-[#064E3B] dark:bg-[#10B981] rounded-full mb-6 group-hover:w-20 transition-all duration-300" />
+                  <div className="h-1 w-12 bg-[#064E3B] dark:bg-[#10B981] rounded-full mb-6 group-hover:w-20 transition-all duration-700 ease-out" />
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-[#121212] dark:text-white group-hover:text-[#064E3B] dark:group-hover:text-[#10B981] transition-colors">
+                  <h3 className="text-xl font-bold text-[#121212] dark:text-white group-hover:text-[#064E3B] dark:group-hover:text-[#10B981] transition-colors duration-500 ease-out">
                     {course.title}
                   </h3>
 
@@ -110,7 +141,7 @@ export default function HomePage() {
                       )}{" "}
                       lessons
                     </span>
-                    <span className="text-[#064E3B] dark:text-[#10B981] font-semibold group-hover:translate-x-1 transition-transform" aria-hidden="true">
+                    <span className="text-[#064E3B] dark:text-[#10B981] font-semibold group-hover:translate-x-1 transition-transform duration-500 ease-out" aria-hidden="true">
                       →
                     </span>
                   </div>
@@ -134,31 +165,24 @@ export default function HomePage() {
             </h2>
             <div className="h-1 w-16 bg-gradient-to-r from-[#064E3B] to-[#064E3B] rounded-full mb-6" />
             <p className="text-[#666666] dark:text-[#A0A0A0] text-lg leading-relaxed">
-              Udemy-style marketplace with curated courses
+              Advanced learning experiences with structured guidance
             </p>
           </div>
 
           {/* Courses Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3].map((i) => (
-              <article
-                key={i}
-                className="group bg-white dark:bg-[#1A1A1A] border border-[#E8E8E8] dark:border-[#2A2A2A] rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#064E3B] dark:focus-visible:ring-[#10B981]"
-              >
+              <article key={i} className="group bg-white dark:bg-[#0F0F0F] border border-[#E8E8E8] dark:border-[#2A2A2A] rounded-2xl overflow-hidden hover:shadow-lg hover:border-[#064E3B] dark:hover:border-[#10B981] transition-all duration-500 ease-out flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#064E3B] dark:focus-visible:ring-[#10B981] rounded-2xl">
                 {/* Image Placeholder */}
-                <div
-                  className="w-full h-48 bg-[#F5F5F5] dark:bg-[#2A2A2A] flex items-center justify-center relative overflow-hidden"
-                  role="img"
-                  aria-label={`Course image for Premium Course ${i}`}
-                >
-                  <span className="text-[#999999] dark:text-[#707070] font-mono text-sm">
-                    Course Image
-                  </span>
+                <div className="w-full h-40 bg-gradient-to-br from-[#F5F5F5] to-[#EFEFEF] dark:from-[#1A1A1A] dark:to-[#252525] flex items-center justify-center">
+                  <div className="text-[#999999] dark:text-[#707070] text-sm font-medium">
+                    Course Preview
+                  </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-1">
-                  <h3 className="text-xl font-bold text-[#121212] dark:text-white group-hover:text-[#064E3B] dark:group-hover:text-[#10B981] transition-colors">
+                  <h3 className="text-xl font-bold text-[#121212] dark:text-white group-hover:text-[#064E3B] dark:group-hover:text-[#10B981] transition-colors duration-500 ease-out">
                     Premium Course {i}
                   </h3>
                   <p className="text-sm text-[#666666] dark:text-[#A0A0A0] mt-3 leading-relaxed flex-1">
@@ -186,7 +210,7 @@ export default function HomePage() {
                   </div>
 
                   {/* CTA Button */}
-                  <button className="w-full mt-6 px-4 py-3 bg-[#064E3B] text-white rounded-2xl font-semibold hover:bg-[#053D2E] transition-all duration-300 dark:bg-[#10B981] dark:text-[#121212] dark:hover:bg-[#059669] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#064E3B] dark:focus-visible:ring-[#10B981] focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#0F0F0F]">
+                  <button className="w-full mt-6 px-4 py-3 bg-[#064E3B] text-white rounded-2xl font-semibold hover:bg-[#053D2E] transition-all duration-500 ease-out dark:bg-[#10B981] dark:text-[#121212] dark:hover:bg-[#059669] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#064E3B] dark:focus-visible:ring-[#10B981] focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#0F0F0F]">
                     Enroll Now
                   </button>
                 </div>
@@ -198,7 +222,7 @@ export default function HomePage() {
           <div className="mt-12 text-center">
             <Link
               href="/courses"
-              className="inline-flex items-center gap-2 text-[#064E3B] dark:text-[#10B981] font-semibold hover:text-[#053D2E] dark:hover:text-[#059669] transition-colors text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#064E3B] dark:focus-visible:ring-[#10B981] rounded px-2 py-1"
+              className="inline-flex items-center gap-2 text-[#064E3B] dark:text-[#10B981] font-semibold hover:text-[#053D2E] dark:hover:text-[#059669] transition-colors duration-500 ease-out text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#064E3B] dark:focus-visible:ring-[#10B981] rounded px-2 py-1"
             >
               View All Courses →
             </Link>
@@ -231,7 +255,7 @@ export default function HomePage() {
                 href={`/blog/${post.slug}`}
                 className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#064E3B] dark:focus-visible:ring-[#10B981] rounded-2xl"
               >
-                <article className="bg-white dark:bg-[#0F0F0F] border border-[#E8E8E8] dark:border-[#2A2A2A] rounded-2xl p-6 hover:shadow-lg hover:border-[#064E3B] dark:hover:border-[#10B981] transition-all duration-300 h-full flex flex-col">
+                <article className="bg-white dark:bg-[#0F0F0F] border border-[#E8E8E8] dark:border-[#2A2A2A] rounded-2xl p-6 hover:shadow-lg hover:border-[#064E3B] dark:hover:border-[#10B981] transition-all duration-500 ease-out h-full flex flex-col">
                   {/* Category Badge */}
                   <div className="inline-flex items-center gap-2 w-fit mb-4">
                     <span className="px-3 py-1 text-xs font-semibold text-[#064E3B] dark:text-[#10B981] bg-[#F5F5F5] dark:bg-[#1A1A1A] border border-[#E8E8E8] dark:border-[#2A2A2A] rounded-full">
@@ -240,7 +264,7 @@ export default function HomePage() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg font-bold text-[#121212] dark:text-white group-hover:text-[#064E3B] dark:group-hover:text-[#10B981] transition-colors">
+                  <h3 className="text-lg font-bold text-[#121212] dark:text-white group-hover:text-[#064E3B] dark:group-hover:text-[#10B981] transition-colors duration-500 ease-out">
                     {post.title}
                   </h3>
 
@@ -252,7 +276,7 @@ export default function HomePage() {
                   {/* Meta */}
                   <div className="mt-6 pt-4 border-t border-[#E8E8E8] dark:border-[#2A2A2A] flex items-center justify-between">
                     <time className="text-xs text-[#999999] dark:text-[#707070]">{post.date}</time>
-                    <span className="text-[#064E3B] dark:text-[#10B981] font-semibold group-hover:translate-x-1 transition-transform" aria-hidden="true">
+                    <span className="text-[#064E3B] dark:text-[#10B981] font-semibold group-hover:translate-x-1 transition-transform duration-500 ease-out" aria-hidden="true">
                       →
                     </span>
                   </div>
@@ -283,7 +307,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/tutorials"
-              className="inline-flex items-center justify-center gap-2 bg-[#064E3B] text-white px-8 py-3.5 rounded-2xl font-semibold hover:bg-[#053D2E] active:scale-95 transition-all duration-300 dark:bg-[#10B981] dark:text-[#121212] dark:hover:bg-[#059669] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#064E3B] dark:focus-visible:ring-[#10B981] focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#0F0F0F]"
+              className="inline-flex items-center justify-center gap-2 bg-[#064E3B] text-white px-8 py-3.5 rounded-2xl font-semibold hover:bg-[#053D2E] active:scale-95 transition-all duration-500 ease-out dark:bg-[#10B981] dark:text-[#121212] dark:hover:bg-[#059669] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#064E3B] dark:focus-visible:ring-[#10B981] focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#0F0F0F]"
             >
               Start Learning
               <svg
@@ -304,7 +328,7 @@ export default function HomePage() {
 
             <Link
               href="/blog"
-              className="inline-flex items-center justify-center gap-2 border-2 border-[#064E3B] text-[#064E3B] px-8 py-3 rounded-2xl font-semibold hover:bg-[#064E3B] hover:text-white transition-all duration-300 dark:border-[#10B981] dark:text-[#10B981] dark:hover:bg-[#10B981] dark:hover:text-[#121212] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#064E3B] dark:focus-visible:ring-[#10B981] focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#0F0F0F]"
+              className="inline-flex items-center justify-center gap-2 border-2 border-[#064E3B] text-[#064E3B] px-8 py-3 rounded-2xl font-semibold hover:bg-[#064E3B] hover:text-white transition-all duration-500 ease-out dark:border-[#10B981] dark:text-[#10B981] dark:hover:bg-[#10B981] dark:hover:text-[#121212] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#064E3B] dark:focus-visible:ring-[#10B981] focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#0F0F0F]"
             >
               Read Articles
             </Link>

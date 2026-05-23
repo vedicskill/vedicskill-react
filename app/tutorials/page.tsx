@@ -2,6 +2,36 @@ import { getTutorialStructure } from "../lib/content";
 import Link from "next/link";
 import { getFirstLesson } from "@/app/lib/course";
 
+export const metadata = {
+  title: "Structured Tutorials - Vedicskill",
+  description:
+    "Explore comprehensive learning paths for AI, Data Science, and Engineering. Start with structured tutorials covering beginner to advanced topics with hands-on projects.",
+  keywords: [
+    "tutorials",
+    "learning paths",
+    "structured courses",
+    "AI tutorials",
+    "Data Science",
+    "Engineering",
+  ],
+  openGraph: {
+    title: "Structured Tutorials & Learning Paths",
+    description:
+      "Master AI, Data Science, and Engineering with our comprehensive tutorial series.",
+    type: "website",
+    images: [
+      {
+        url: "https://vedicskill.com/og-tutorials.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://vedicskill.com/tutorials",
+  },
+};
+
 export default function TutorialsPage() {
   const data = getTutorialStructure();
 

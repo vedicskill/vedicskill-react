@@ -1,10 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { ThemeProvider } from "@/app/components/ThemeProvider";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Providers } from "@/app/components/providers";
+import "./globals.css";
+
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -17,29 +20,71 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Vedicskill",
+    default: "Vedicskill - AI, Data Science & Engineering Tutorials",
     template: "%s | Vedicskill",
   },
 
   description:
-    "Learn AI, Data Science, and Engineering with structured tutorials and real-world projects.",
+    "Master AI, Data Science, and Engineering with comprehensive tutorials, real-world projects, and hands-on learning paths. Build industry-ready skills with structured courses.",
+
+  keywords: [
+    "AI tutorials",
+    "Data Science courses",
+    "Engineering learning",
+    "Machine learning",
+    "Python tutorials",
+    "Tech education",
+    "Online courses",
+    "Structured learning",
+  ],
 
   metadataBase: new URL("https://vedicskill.com"),
 
+  // viewport: "width=device-width, initial-scale=1, maximum-scale=5",
+
+  robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+
   openGraph: {
-    title: "Vedicskill",
-    description: "Structured tutorials for AI, Data Science, and Engineering.",
+    title: "Vedicskill - Learn AI, Data Science & Engineering",
+    description:
+      "Comprehensive tutorials and courses in AI, Data Science, and Engineering. Start learning today with structured paths and real-world projects.",
     url: "https://vedicskill.com",
     siteName: "Vedicskill",
+    locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "https://vedicskill.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Vedicskill - Learn AI, Data Science & Engineering",
+      },
+    ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Vedicskill",
+    title: "Vedicskill - AI, Data Science & Engineering Learning Platform",
     description:
-      "Learn AI, Data Science, and Engineering with practical tutorials.",
+      "Structured tutorials and hands-on projects to master AI, Data Science, and Engineering.",
+    images: ["https://vedicskill.com/twitter-image.png"],
+    creator: "@vedicskill",
   },
+
+  alternates: {
+    canonical: "https://vedicskill.com",
+  },
+
+  verification: {
+    google: "your-google-verification-code",
+    yandex: "your-yandex-verification-code",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
@@ -52,7 +97,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-white dark:bg-[#0F0F0F] text-[#121212] dark:text-white flex flex-col min-h-screen antialiased transition-colors duration-200`}
       >
-        <ThemeProvider>
+        <Providers>
           {/*GoogleAnalytics*/}
           <GoogleAnalytics gaId="G-CDYJXR6P96" />
           {/* Navigation */}
@@ -63,7 +108,7 @@ export default function RootLayout({
 
           {/* Footer */}
           <Footer />
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
