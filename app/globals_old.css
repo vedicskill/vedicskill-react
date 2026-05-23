@@ -79,18 +79,10 @@ html {
 }
 
 body {
-  background: var(--background) !important;
-  color: var(--foreground) !important;
+  background: var(--background);
+  color: var(--foreground);
   font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-/* Ensure html and body fill viewport */
-html, body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
 }
 
 /* Text utilities */
@@ -467,3 +459,5 @@ pre {
 .animate-slide-up {
   animation: slideInUp 0.3s ease-in-out;
 }
+
+
