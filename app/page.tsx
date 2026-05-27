@@ -219,11 +219,11 @@ export default async function HomePage() {
             {premiumCourses.slice(0, 6).map((course: any) => (
               <article
                 key={course.course_id}
-                className="group bg-white dark:bg-[#0F0F0F] border border-[#E8E8E8] dark:border-[#2A2A2A] rounded-2xl overflow-hidden hover:shadow-lg hover:border-[#064E3B] dark:hover:border-[#10B981] transition-all duration-500 ease-out flex flex-col"
+                className="group bg-white dark:bg-[#0F0F0F] border border-[#E8E8E8] dark:border-[#2A2A2A] rounded-2xl overflow-hidden hover:shadow-xl hover:border-[#064E3B] dark:hover:border-[#10B981] transition-all duration-500 ease-out flex flex-col"
               >
 
                 {/* Image */}
-                <div className="w-full h-48 overflow-hidden bg-[#F5F5F5] dark:bg-[#1A1A1A]">
+                <div className="w-full h-52 overflow-hidden bg-[#F5F5F5] dark:bg-[#1A1A1A]">
 
                   <img
                     src={
@@ -242,8 +242,8 @@ export default async function HomePage() {
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-1">
 
-                  {/* Level */}
-                  <div className="mb-4">
+                  {/* Top Tags */}
+                  <div className="flex flex-wrap gap-2 mb-4">
 
                     <span className="px-3 py-1 text-xs font-semibold text-[#064E3B] dark:text-[#10B981] bg-[#F5F5F5] dark:bg-[#1A1A1A] border border-[#E8E8E8] dark:border-[#2A2A2A] rounded-full">
 
@@ -251,31 +251,102 @@ export default async function HomePage() {
 
                     </span>
 
+                    <span className="px-3 py-1 text-xs font-semibold text-[#666666] dark:text-[#A0A0A0] bg-[#F5F5F5] dark:bg-[#1A1A1A] border border-[#E8E8E8] dark:border-[#2A2A2A] rounded-full">
+
+                      {course.platform || "Platform"}
+
+                    </span>
+
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-[#121212] dark:text-white group-hover:text-[#064E3B] dark:group-hover:text-[#10B981] transition-colors duration-500 ease-out line-clamp-2">
+                  <h3 className="text-xl font-bold text-[#121212] dark:text-white group-hover:text-[#064E3B] dark:group-hover:text-[#10B981] transition-colors duration-500 ease-out line-clamp-2 leading-relaxed">
 
                     {course.course_name}
 
                   </h3>
 
-                  {/* Platform */}
-                  <p className="text-sm text-[#666666] dark:text-[#A0A0A0] mt-3 leading-relaxed flex-1">
+                  {/* Keywords */}
+                  {course.keywords && (
+                    <div className="flex flex-wrap gap-2 mt-4">
 
-                    {course.platform || "Premium Learning"}
+                      {typeof course.keywords === "string" &&
+                        course.keywords
+                          .split(",")
+                          .slice(0, 3)
+                          .map((keyword: string, index: number) => (
+                            <span
+                              key={`${keyword}-${index}`}
+                              className="px-2.5 py-1 text-[11px] font-medium text-[#666666] dark:text-[#A0A0A0] bg-[#F8F8F8] dark:bg-[#252525] border border-[#E8E8E8] dark:border-[#303030] rounded-full"
+                            >
 
-                  </p>
+                              {keyword.trim()}
+
+                            </span>
+                          ))}
+
+                    </div>
+                  )}
+
+                  {/* Meta */}
+                  <div className="flex flex-wrap items-center gap-4 mt-5 text-sm text-[#666666] dark:text-[#A0A0A0]">
+
+                    {/* Duration */}
+                    <div className="flex items-center gap-1.5">
+
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="9"
+                        />
+
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M12 7v5l3 3"
+                        />
+                      </svg>
+
+                      <span>
+                        {course.duration || 0} hrs
+                      </span>
+
+                    </div>
+
+                    {/* Lessons */}
+                    <div className="flex items-center gap-1.5">
+
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M12 6.253v13m0-13C10.832 5.483 9.246 5 7.5 5S4.168 5.483 3 6.253v13C4.168 18.483 5.754 18 7.5 18s3.332.483 4.5 1.253m0-13C13.168 5.483 14.754 5 16.5 5c1.746 0 3.332.483 4.5 1.253v13C19.832 18.483 18.246 18 16.5 18c-1.746 0-3.332.483-4.5 1.253"
+                        />
+                      </svg>
+
+                      <span>
+                        {course.lessons || 0} lessons
+                      </span>
+
+                    </div>
+
+                  </div>
 
                   {/* Rating */}
-                  <div className="mt-6 flex items-center justify-between">
-
-                    <span className="text-lg font-bold text-[#121212] dark:text-white">
-
-                      {course.currency || "$"}
-                      {course.course_price || 0}
-
-                    </span>
+                  <div className="mt-6 flex items-center justify-between border-t border-[#E8E8E8] dark:border-[#2A2A2A] pt-5">
 
                     <div className="flex items-center gap-2">
 
@@ -298,29 +369,80 @@ export default async function HomePage() {
 
                       </div>
 
-                      <span className="text-sm text-[#666666] dark:text-[#A0A0A0]">
+                      <span className="text-sm font-medium text-[#121212] dark:text-white">
 
                         {course.rating || 0}
 
                       </span>
 
                     </div>
+
+                    <span className="text-sm text-[#999999] dark:text-[#707070]">
+
+                      {course.students_rated?.toLocaleString() || 0}
+                      {" "}students
+
+                    </span>
+
                   </div>
 
-                  {/* Button */}
-                  <Link
-                    href={course.course_url || "#"}
-                    target="_blank"
-                    className="w-full mt-6 px-4 py-3 text-center bg-[#064E3B] text-white rounded-2xl font-semibold hover:bg-[#053D2E] transition-all duration-500 ease-out dark:bg-[#10B981] dark:text-[#121212] dark:hover:bg-[#059669]"
-                  >
+                  {/* Price + CTA */}
+                  <div className="mt-6">
 
-                    Enroll Now
+                    {/* Price */}
+                    <div className="flex items-end gap-3 mb-5">
 
-                  </Link>
+                      <span className="text-3xl font-bold text-[#064E3B] dark:text-[#10B981]">
+
+                        {course.currency_symbol || "$"}
+                        {course.course_price || 0}
+
+                      </span>
+
+                      {course.course_base_price &&
+                        course.course_base_price >
+                          course.course_price && (
+                          <span className="text-lg text-[#999999] dark:text-[#707070] line-through">
+
+                            {course.currency_symbol || "$"}
+                            {course.course_base_price}
+
+                          </span>
+                        )}
+
+                    </div>
+
+                    {/* CTA */}
+                    <Link
+                      href={course.course_url || "#"}
+                      target="_blank"
+                      className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-[#064E3B] text-white rounded-2xl font-semibold hover:bg-[#053D2E] transition-all duration-300 dark:bg-[#10B981] dark:text-[#121212] dark:hover:bg-[#059669]"
+                    >
+
+                      Enroll Now
+
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+
+                    </Link>
+
+                  </div>
 
                 </div>
               </article>
             ))}
+
           </div>
 
           {/* View All */}
@@ -336,6 +458,7 @@ export default async function HomePage() {
             </Link>
 
           </div>
+
         </div>
       </section>
     </div>
