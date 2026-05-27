@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getFirstLesson } from "@/app/lib/course";
 
 export const metadata = {
-  title: "Structured Tutorials - Vedicskill",
+  title: "Structured Tutorials - VedicSkill Academy",
   description:
     "Explore comprehensive learning paths for AI, Data Science, and Engineering. Start with structured tutorials covering beginner to advanced topics with hands-on projects.",
   keywords: [

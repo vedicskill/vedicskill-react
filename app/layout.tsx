@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Vedicskill - AI, Data Science & Engineering Tutorials",
+    default: "VedicSkill Academy | AI, Data Science & Engineering Tutorials",
     template: "%s | Vedicskill",
   },
 
@@ -45,11 +45,11 @@ export const metadata: Metadata = {
   robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
 
   openGraph: {
-    title: "Vedicskill - Learn AI, Data Science & Engineering",
+    title: "VedicSkill Academy - AI, Data Science & Engineering Tutorials",
     description:
       "Comprehensive tutorials and courses in AI, Data Science, and Engineering. Start learning today with structured paths and real-world projects.",
     url: "https://vedicskill.com",
-    siteName: "Vedicskill",
+    siteName: "VedicSkill Academy",
     locale: "en_US",
     type: "website",
     images: [
@@ -57,14 +57,14 @@ export const metadata: Metadata = {
         url: "https://vedicskill.com/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Vedicskill - Learn AI, Data Science & Engineering",
+        alt: "VedicSkill Academy - AI, Data Science & Engineering Tutorials",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Vedicskill - AI, Data Science & Engineering Learning Platform",
+    title: "VedicSkill - AI, Data Science & Engineering Learning Platform",
     description:
       "Structured tutorials and hands-on projects to master AI, Data Science, and Engineering.",
     images: ["https://vedicskill.com/twitter-image.png"],

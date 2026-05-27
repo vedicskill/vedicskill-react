@@ -73,7 +73,7 @@ export default function Footer() {
           <div className="sm:col-span-2 md:col-span-1">
             <Link href="/" className="inline-flex items-center gap-3 mb-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#064E3B] dark:focus-visible:ring-[#10B981] rounded px-2 py-1">
               <span className="font-bold text-lg text-[#121212] dark:text-white tracking-tight">
-                VedicSkill
+                VedicSkill Academy
               </span>
             </Link>
             <p className="text-[#666666] dark:text-[#A0A0A0] text-sm leading-relaxed max-w-sm">
