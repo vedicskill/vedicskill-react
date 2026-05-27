@@ -64,7 +64,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "VedicSkill - AI, Data Science & Engineering Learning Platform",
+    title: "VedicSkill Academy - AI, Data Science & Engineering Learning Platform",
     description:
       "Structured tutorials and hands-on projects to master AI, Data Science, and Engineering.",
     images: ["https://vedicskill.com/twitter-image.png"],
