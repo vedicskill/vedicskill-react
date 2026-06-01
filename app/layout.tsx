@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
-import { ThemeProvider } from "@/app/components/ThemeProvider";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Providers } from "@/app/components/providers";
 import "./globals.css";
@@ -20,22 +19,22 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Vedicskill - AI, Data Science & Engineering Tutorials",
-    template: "%s | Vedicskill",
+    default: "VedicSkill Academy | AI, Data Science & Engineering Courses",
+    template: "%s | VedicSkill Academy",
   },
 
   description:
-    "Master AI, Data Science, and Engineering with comprehensive tutorials, real-world projects, and hands-on learning paths. Build industry-ready skills with structured courses.",
+    "VedicSkill Academy offers career-ready online courses in AI, Data Science, Machine Learning, and Engineering. Learn with project-based training, expert mentorship, and real-world outcomes.",
 
   keywords: [
-    "AI tutorials",
-    "Data Science courses",
-    "Engineering learning",
-    "Machine learning",
-    "Python tutorials",
-    "Tech education",
-    "Online courses",
-    "Structured learning",
+    "AI course",
+    "Data Science course",
+    "Machine Learning course",
+    "Engineering course",
+    "online learning",
+    "project-based training",
+    "career-ready skills",
+    "VedicSkill Academy",
   ],
 
   metadataBase: new URL("https://vedicskill.com"),
@@ -45,11 +44,11 @@ export const metadata: Metadata = {
   robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
 
   openGraph: {
-    title: "Vedicskill - Learn AI, Data Science & Engineering",
+    title: "VedicSkill Academy - Online Courses in AI, Data Science & Engineering",
     description:
-      "Comprehensive tutorials and courses in AI, Data Science, and Engineering. Start learning today with structured paths and real-world projects.",
+      "VedicSkill Academy helps learners advance with practical online courses in AI, Data Science, Machine Learning, and Engineering. Learn by building real projects for job-ready skills.",
     url: "https://vedicskill.com",
-    siteName: "Vedicskill",
+    siteName: "VedicSkill Academy",
     locale: "en_US",
     type: "website",
     images: [
@@ -57,16 +56,16 @@ export const metadata: Metadata = {
         url: "https://vedicskill.com/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Vedicskill - Learn AI, Data Science & Engineering",
+        alt: "VedicSkill Academy - AI, Data Science & Engineering Courses",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Vedicskill - AI, Data Science & Engineering Learning Platform",
+    title: "VedicSkill Academy - Career-Focused Online Courses",
     description:
-      "Structured tutorials and hands-on projects to master AI, Data Science, and Engineering.",
+      "Discover practical online courses in AI, Data Science, and Engineering at VedicSkill Academy. Build real projects, gain job-ready skills, and grow your career.",
     images: ["https://vedicskill.com/twitter-image.png"],
     creator: "@vedicskill",
   },

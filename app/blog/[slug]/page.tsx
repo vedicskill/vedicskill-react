@@ -8,9 +8,11 @@ export default async function BlogPost({
 }) {
   const { slug } = await params;
 
-  const data = await getMarkdownContent(
-    `content/blog/${slug}.md`
-  );
+  const data = await getMarkdownContent<{
+    title: string;
+    description?: string;
+    date?: string;
+  }>(`content/blog/${slug}.md`);
 
   return (
     <div className="w-full bg-white dark:bg-[#0F0F0F] min-h-screen">
@@ -111,12 +113,13 @@ export default async function BlogPost({
   );
 }
 
-export async function generateMetadata({ params }: any) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
-  const data = await getMarkdownContent(
-    `content/blog/${slug}.md`
-  );
+  const data = await getMarkdownContent<{
+    title: string;
+    description?: string;
+  }>(`content/blog/${slug}.md`);
 
   return {
     title: data.meta.title,

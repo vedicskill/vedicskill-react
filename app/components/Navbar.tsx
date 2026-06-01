@@ -66,7 +66,7 @@ export default function Navbar() {
             className="flex items-center gap-3 group font-bold text-lg text-[#121212] dark:text-white tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#064E3B] dark:focus-visible:ring-[#10B981] rounded px-2 py-1"
             aria-label="Vedicskill Home"
           >
-            VedicSkill
+            VedicSkill Academy
           </Link>
 
           {/* Desktop Menu */}

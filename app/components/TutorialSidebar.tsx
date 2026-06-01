@@ -1,6 +1,11 @@
 import Link from "next/link";
 import { getCourse } from "@/app/lib/course";
 import { getLessonMetadata } from "@/app/lib/markdown";
+import type {
+  TutorialCourse,
+  TutorialLesson,
+  TutorialSection,
+} from "@/app/types";
 
 export default async function TutorialSidebar({
   course,
@@ -9,21 +14,21 @@ export default async function TutorialSidebar({
   course: string;
   currentLesson: string;
 }) {
-  const courseData = getCourse(course);
+  const courseData = getCourse(course) as TutorialCourse;
 
   // Build sidebar sections with markdown metadata
   const sidebarSections = await Promise.all(
-    courseData.sections.map(async (section: any) => {
+    courseData.sections.map(async (section: TutorialSection) => {
       const lessons = await Promise.all(
-        section.lessons.map(async (lesson: any) => {
+        section.lessons.map(async (lesson: TutorialLesson | string) => {
           const slug = typeof lesson === "string" ? lesson : lesson.slug;
 
           const metadata = await getLessonMetadata(course, slug);
 
           return {
             slug,
-            title: metadata?.title || slug,
-            order: metadata?.order || 999,
+            title: (metadata?.title as string) || slug,
+            order: (metadata?.order as number) || 999,
           };
         }),
       );
@@ -48,8 +53,8 @@ export default async function TutorialSidebar({
 
         {/* Sections */}
         <div className="space-y-8">
-          {sidebarSections.map((section: any) => (
-            <div key={section.title}>
+          {sidebarSections.map((section) => (
+            <div key={section.title || "section"}>
               {/* Section Title */}
               <h3 className="text-xs uppercase tracking-wider text-[#999999] dark:text-[#707070] font-bold mb-3 px-2">
                 {section.title}
@@ -57,7 +62,7 @@ export default async function TutorialSidebar({
 
               {/* Lessons */}
               <ul className="space-y-2">
-                {section.lessons.map((lesson: any) => {
+                {section.lessons.map((lesson) => {
                   const isActive = lesson.slug === currentLesson;
 
                   return (

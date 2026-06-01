@@ -11,9 +11,10 @@ export default async function LessonPage({
   const { course, lesson } = await params;
 
   // Load markdown content
-  const data = await getMarkdownContent(
-    `content/tutorials/${course}/${lesson}.md`
-  );
+  const data = await getMarkdownContent<{
+    title: string;
+    description?: string;
+  }>(`content/tutorials/${course}/${lesson}.md`);
 
   // Load all lessons for navigation
   const lessons = getLessons(course);
@@ -142,12 +143,13 @@ export default async function LessonPage({
   );
 }
 
-export async function generateMetadata({ params }: any) {
+export async function generateMetadata({ params }: { params: Promise<{ course: string; lesson: string }> }) {
   const { course, lesson } = await params;
 
-  const data = await getMarkdownContent(
-    `content/tutorials/${course}/${lesson}.md`
-  );
+  const data = await getMarkdownContent<{
+    title: string;
+    description?: string;
+  }>(`content/tutorials/${course}/${lesson}.md`);
 
   return {
     title: data.meta.title,

@@ -2,17 +2,21 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { getYaml } from "./yaml";
+import type {
+  TutorialLesson,
+  TutorialStructure,
+} from "@/app/types";
 
-export function getTutorialStructure() {
-    return getYaml("content/tutorials/tutorials.yaml") as any;
+export function getTutorialStructure(): TutorialStructure {
+  return getYaml("content/tutorials/tutorials.yaml") as TutorialStructure;
 }
 
-export function getLessons(course: string) {
-  const dirPath = path.join(process.cwd(), `content/tutorials/${course}`);
+export function getLessons(course: string): TutorialLesson[] {
+  const dirPath = path.join(/*turbopackIgnore: true*/ process.cwd(), `content/tutorials/${course}`);
 
-  function walk(dir: string, base = ""): any[] {
+  function walk(dir: string, base = ""): TutorialLesson[] {
     const entries = fs.readdirSync(dir);
-    let res: any[] = [];
+    let res: TutorialLesson[] = [];
     for (const entry of entries) {
       const filePath = path.join(dir, entry);
       const stat = fs.statSync(filePath);
