@@ -28,6 +28,7 @@ export default function CoursesPage() {
     setLoading(true);
 
     const data = await getCourses();
+    console.log({"data":data})
 
     setCourses(data);
 
