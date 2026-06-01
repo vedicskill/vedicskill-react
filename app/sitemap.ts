@@ -1,11 +1,12 @@
 import type { MetadataRoute } from 'next';
 import { getTutorialStructure } from '@/app/lib/content';
 import { getAllPosts } from '@/app/lib/blog';
+import type { BlogPost } from '@/app/types';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://vedicskill.com';
   const tutorials = getTutorialStructure();
-  const posts = getAllPosts();
+  const posts = getAllPosts() as BlogPost[];
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
@@ -42,10 +43,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Dynamic tutorial pages
-  const tutorialPages: MetadataRoute.Sitemap = tutorials.courses.flatMap((course: any) =>
-    course.sections.flatMap((section: any) =>
-      section.lessons.map((lesson: any) => ({
-        url: `${baseUrl}/tutorials/${course.slug}/${lesson.slug}`,
+  const tutorialPages: MetadataRoute.Sitemap = tutorials.courses.flatMap((course) =>
+    course.sections.flatMap((section) =>
+      section.lessons.map((lesson) => ({
+        url: `${baseUrl}/tutorials/${course.slug}/${
+          typeof lesson === "string" ? lesson : lesson.slug
+        }`,
         lastModified: new Date(),
         changeFrequency: 'monthly' as const,
         priority: 0.7,
@@ -54,7 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   // Blog post pages
-  const blogPages: MetadataRoute.Sitemap = posts.map((post: any) => ({
+  const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.date),
     changeFrequency: 'monthly' as const,

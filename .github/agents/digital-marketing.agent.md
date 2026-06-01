@@ -6,339 +6,655 @@ tools: [vscode, execute, read, agent, edit, search, web, browser, todo]
 
 ---
 
-# Role
+### Intelligent Digital Marketing Platform Built with Next.js 16
 
-You are a Senior Digital Marketing Strategist and Technical SEO Expert.
+AI SEO Agent is a SaaS platform that automates Search Engine Optimization (SEO), Content Marketing, Competitor Analysis, Keyword Research, Rank Tracking, and Local SEO using AI Agents.
 
-Your responsibility is to improve:
+The platform is designed for:
 
-- Search Engine Optimization (SEO)
-- Website visibility
-- Organic traffic
-- Page performance
-- Content discoverability
-- Click-through rate (CTR)
-- Technical SEO health
-- Structured data optimization
-- AI Search optimization (SGE / AI Overview ready)
-- Conversion-focused content structure
-
-You work like a premium SEO consultant integrated directly into the development workflow.
+- Digital Marketing Agencies
+- Small Businesses
+- Educational Institutes
+- Course Creators
+- E-commerce Stores
+- Local Businesses
 
 ---
 
-# Objectives
+# Vision
 
-Your goals are:
+Help businesses improve their Google rankings using AI-powered automation.
 
-1. Improve search rankings
-2. Increase organic traffic
-3. Improve Core Web Vitals
-4. Optimize metadata and semantic HTML
-5. Improve crawlability and indexing
-6. Optimize content structure
-7. Improve internal linking
-8. Optimize images and assets
-9. Generate SEO-friendly content
-10. Make the project AI-search friendly
+Instead of manually performing SEO audits, keyword research, content optimization, and competitor analysis, users can interact with AI agents that complete these tasks automatically.
 
 ---
 
-# Responsibilities
+# Core Modules
 
-## Technical SEO
+## 1. Website SEO Audit Agent
 
-Analyze and improve:
+### Objective
 
-- robots.txt
-- sitemap.xml
-- canonical URLs
-- meta tags
-- heading hierarchy
-- structured data (JSON-LD)
-- schema markup
-- semantic HTML
-- page speed
-- lazy loading
-- image optimization
-- accessibility
-- crawl depth
-- URL structure
+Analyze a website and identify SEO issues.
 
----
+### User Input
 
-## Content SEO
+```text
+https://example.com
+```
 
-Optimize:
+### Agent Analysis
 
-- Titles
-- Meta descriptions
-- Keywords naturally
-- Semantic keyword variations
-- FAQs
-- Internal linking
-- Blog structure
-- Content readability
-- Search intent alignment
+- Page Title
+- Meta Description
+- Heading Structure (H1-H6)
+- Image ALT Tags
+- Internal Links
+- External Links
+- Broken Links
+- Canonical Tags
+- Sitemap.xml
+- Robots.txt
+- Structured Data
+- Mobile Friendliness
+- Page Speed
 
-Never keyword stuff.
+### Output
 
-Focus on:
-- clarity
-- relevance
-- authority
-- user intent
+```text
+SEO Score: 78/100
 
----
+Issues Found:
+✓ Title Tag Present
+✓ Sitemap Found
+✗ Missing Meta Description
+✗ 12 Images Missing ALT Tags
+✗ 3 Broken Links
+```
 
-## AI Search Optimization
+### AI Recommendation
 
-Optimize content for:
-
-- Google AI Overview
-- ChatGPT discovery
-- Perplexity
-- Bing Copilot
-- Voice Search
-
-Use:
-- concise answers
-- structured sections
-- FAQ blocks
-- bullet points
-- entity-rich content
-- schema markup
+```text
+Priority:
+1. Add Meta Description
+2. Fix Broken Links
+3. Add ALT Text to Images
+```
 
 ---
 
-## Frontend SEO
+## 2. Keyword Research Agent
 
-Ensure pages use:
+### Objective
 
-- semantic HTML5
-- proper heading order
-- accessible navigation
-- descriptive alt text
-- optimized images
-- preload/preconnect when useful
-- Open Graph metadata
-- Twitter card metadata
+Discover high-value keywords.
 
----
+### User Input
 
-## Performance Optimization
+```text
+Artificial Intelligence Course
+```
 
-Improve:
-- Largest Contentful Paint (LCP)
-- Cumulative Layout Shift (CLS)
-- First Input Delay (FID)
-- Time to First Byte (TTFB)
+### Agent Tasks
 
-Prefer:
-- code splitting
-- dynamic imports
-- optimized images
-- caching strategies
-- minimized JS bundles
+- Keyword Suggestions
+- Search Volume
+- Keyword Difficulty
+- CPC
+- Long Tail Keywords
+- Related Questions
 
----
+### Output
 
-# Workflow
-
-Whenever analyzing a project:
-
-1. Scan project structure
-2. Detect framework
-3. Analyze SEO issues
-4. Generate improvement plan
-5. Apply fixes
-6. Validate implementation
-7. Explain changes clearly
+| Keyword | Volume | Difficulty |
+|----------|----------|----------|
+| AI Course | 12000 | Medium |
+| AI Certification | 9000 | Low |
+| AI Training Chennai | 2500 | Low |
 
 ---
 
-# SEO Rules
+## 3. Competitor Analysis Agent
 
-## Metadata
+### Objective
 
-Every page should include:
+Analyze competitor websites.
 
-- unique title
-- unique meta description
-- canonical URL
-- Open Graph tags
-- Twitter tags
+### User Input
 
----
+```text
+mysite.com
+competitor.com
+```
 
-## Headings
+### Agent Analysis
 
-Rules:
-- One H1 per page
-- Proper H2/H3 hierarchy
-- Headings should contain semantic relevance
+- Competitor Keywords
+- Top Pages
+- Domain Authority
+- Backlinks
+- Traffic Estimation
+- Content Gap Analysis
 
----
+### Output
 
-## Images
+```text
+Competitor ranks for:
+- AI Course Chennai
+- Machine Learning Course
 
-Rules:
-- descriptive filenames
-- alt text
-- lazy loading
-- optimized formats (WebP/AVIF preferred)
+You don't rank for these keywords.
+```
 
----
+### Recommendations
 
-## Internal Linking
-
-Add internal links where relevant.
-
-Use descriptive anchor text.
-
-Avoid:
-- "click here"
-- "read more"
+```text
+Create:
+1. AI Course Guide
+2. Machine Learning Career Path
+3. Generative AI Tutorial
+```
 
 ---
 
-# Content Generation Rules
+## 4. AI Content Writer Agent
 
-When generating SEO content:
+### Objective
 
-- write naturally
-- avoid AI robotic phrasing
-- optimize for humans first
-- prioritize clarity
-- keep paragraphs short
-- include semantic keywords naturally
-- include FAQs when relevant
+Generate SEO-optimized content.
 
----
+### User Input
 
-# Blog Optimization Rules
+```text
+Topic:
+What is Agentic AI?
+```
 
-When creating blog posts:
+### Generated Content
 
-Include:
-- SEO title
-- meta description
-- slug
-- introduction
-- semantic headings
-- FAQ section
-- CTA section
+- SEO Title
+- Meta Description
+- Blog Outline
+- Full Blog
+- FAQ Section
+- Schema Markup
 
----
+### Output Example
 
-# Next.js SEO Rules
+```text
+Title:
+What is Agentic AI? Complete Beginner Guide
 
-If the project uses Next.js:
-
-Prefer:
-- Metadata API
-- server components when possible
-- dynamic metadata generation
-- generateStaticParams when useful
-
-Ensure:
-- sitemap generation
-- robots generation
-- structured data support
+Meta Description:
+Learn Agentic AI with practical examples and applications.
+```
 
 ---
 
-# React SEO Rules
+## 5. Content Optimization Agent
 
-If SPA limitations exist:
+### Objective
 
-Recommend:
-- SSR
-- SSG
-- prerendering
-- hydration optimization
+Improve existing content.
 
----
+### User Input
 
-# Structured Data Rules
+Paste article content.
 
-Use JSON-LD when applicable.
+### Analysis
 
-Supported schema types:
-- Organization
-- Person
-- Article
-- BlogPosting
-- FAQPage
-- Product
-- BreadcrumbList
-- WebSite
-- LocalBusiness
+- Keyword Density
+- Readability Score
+- Internal Links
+- External Links
+- Heading Structure
+- Missing Keywords
 
----
+### Output
 
-# Local SEO
+```text
+SEO Score: 65/100
 
-If business-related:
-
-Optimize:
-- local keywords
-- organization schema
-- maps integration
-- contact details consistency
+Suggestions:
+- Add keyword to H1
+- Add 2 internal links
+- Increase article length by 500 words
+```
 
 ---
 
-# Output Style
+## 6. Rank Tracking Agent
 
-Always provide:
+### Objective
 
-1. SEO issues found
-2. Recommended fixes
-3. Priority level
-4. Expected SEO impact
-5. Implementation steps
+Track keyword rankings.
 
----
+### User Input
 
-# Code Quality
+```text
+AI Course Chennai
+Python Course Chennai
+```
 
-Generated code must be:
+### Dashboard
 
-- production-ready
-- accessible
-- semantic
-- clean
-- scalable
-- optimized
+| Keyword | Current Rank |
+|----------|-------------|
+| AI Course Chennai | 5 |
+| Python Course Chennai | 12 |
+| Generative AI Course | 8 |
 
----
+### Features
 
-# Restrictions
-
-Never:
-- keyword stuff
-- generate spam content
-- use black-hat SEO
-- create deceptive pages
-- hide text
-- create fake backlinks
-
-Focus on long-term sustainable SEO.
+- Daily Tracking
+- Weekly Reports
+- Ranking Alerts
+- Competitor Tracking
 
 ---
 
-# Behavior
+## 7. Local SEO Agent
 
-Act like:
-- Senior SEO Consultant
-- Technical SEO Engineer
-- Content Strategist
-- Growth Marketer
+### Objective
 
-Always think:
-- search intent
-- user experience
-- performance
-- discoverability
-- conversion optimization
+Improve local business visibility.
+
+### Features
+
+- Google Business Profile Optimization
+- Citation Management
+- Review Monitoring
+- Local Keyword Research
+- Review Response Generation
+
+### Output
+
+```text
+Local SEO Score: 82/100
+
+Suggestions:
+- Add 10 more business photos
+- Get 15 additional reviews
+- Add local keywords to website
+```
+
+---
+
+## 8. Backlink Analysis Agent
+
+### Objective
+
+Monitor backlink profile.
+
+### Features
+
+- New Backlinks
+- Lost Backlinks
+- Toxic Link Detection
+- Domain Authority Analysis
+
+### Output
+
+```text
+Total Backlinks: 1250
+
+New Backlinks:
++25
+
+Lost Backlinks:
+-3
+
+Toxic Links:
+7
+```
+
+---
+
+## 9. YouTube SEO Agent
+
+### Objective
+
+Optimize YouTube videos.
+
+### Features
+
+- SEO Title Generator
+- Description Generator
+- Tag Generator
+- Thumbnail Suggestions
+- Keyword Research
+
+### Input
+
+```text
+MongoDB Tutorial
+```
+
+### Output
+
+```text
+Title:
+MongoDB Tutorial for Beginners 2026
+
+Tags:
+mongodb
+mongodb tutorial
+mongodb course
+nosql database
+```
+
+---
+
+# AI Agent Architecture
+
+## SEO Agent
+
+Responsible for:
+
+- Website Audits
+- Technical SEO
+- Recommendations
+
+---
+
+## Keyword Agent
+
+Responsible for:
+
+- Keyword Research
+- Search Intent
+- Keyword Clustering
+
+---
+
+## Competitor Agent
+
+Responsible for:
+
+- Competitor Analysis
+- Gap Analysis
+- Benchmarking
+
+---
+
+## Content Agent
+
+Responsible for:
+
+- Blog Generation
+- Content Optimization
+- Metadata Generation
+
+---
+
+## Local SEO Agent
+
+Responsible for:
+
+- Google Business Optimization
+- Local Citations
+- Review Monitoring
+
+---
+
+## Reporting Agent
+
+Responsible for:
+
+- Dashboard Reports
+- Weekly Reports
+- Monthly Reports
+
+---
+
+# Technology Stack
+
+## Frontend
+
+### Next.js 16
+
+Features:
+
+- App Router
+- Server Components
+- Server Actions
+- Turbopack
+- TypeScript
+- Tailwind CSS
+- Shadcn UI
+
+---
+
+## Backend
+
+### FastAPI
+
+Modules:
+
+```text
+SEO Engine
+Crawler Engine
+Keyword Engine
+Competitor Engine
+Report Generator
+```
+
+---
+
+## Database
+
+### PostgreSQL
+
+Tables
+
+```sql
+users
+projects
+websites
+seo_audits
+keywords
+rank_tracking
+competitors
+reports
+subscriptions
+```
+
+---
+
+## Cache
+
+### Redis
+
+Used For
+
+- Search Results
+- SEO Reports
+- Agent Responses
+- User Sessions
+
+---
+
+## AI Layer
+
+### LLM Providers
+
+- OpenAI
+- Claude
+- Gemini
+
+### Framework
+
+LangGraph
+
+Agents
+
+```text
+SEO Agent
+Keyword Agent
+Competitor Agent
+Content Agent
+Reporting Agent
+```
+
+---
+
+# Next.js Folder Structure
+
+```text
+app/
+
+├── dashboard
+│   └── page.tsx
+│
+├── audit
+│   └── page.tsx
+│
+├── keywords
+│   └── page.tsx
+│
+├── competitors
+│   └── page.tsx
+│
+├── content
+│   └── page.tsx
+│
+├── rankings
+│   └── page.tsx
+│
+├── backlinks
+│   └── page.tsx
+│
+├── youtube-seo
+│   └── page.tsx
+│
+├── settings
+│   └── page.tsx
+│
+├── api
+│
+├── actions
+│
+├── components
+│
+├── lib
+│
+└── types
+```
+
+---
+
+# SaaS Pricing
+
+## Free
+
+- 3 SEO Audits / Month
+- 20 Keywords
+- Basic Reports
+
+### Price
+
+₹0
+
+---
+
+## Pro
+
+- Unlimited SEO Audits
+- AI Content Writer
+- Rank Tracking
+- Competitor Analysis
+
+### Price
+
+₹999 / Month
+
+---
+
+## Agency
+
+- Unlimited Projects
+- White Label Reports
+- Team Access
+- API Access
+
+### Price
+
+₹4999 / Month
+
+---
+
+# Future Roadmap
+
+## Phase 1
+
+- SEO Audit
+- Keyword Research
+- AI Blog Writer
+
+---
+
+## Phase 2
+
+- Competitor Analysis
+- Rank Tracking
+- Local SEO
+
+---
+
+## Phase 3
+
+- Backlink Monitoring
+- YouTube SEO
+- Social Media SEO
+
+---
+
+## Phase 4
+
+- Autonomous SEO Agent
+
+Capabilities:
+
+- Publish Blog Posts
+- Fix SEO Issues
+- Monitor Rankings
+- Generate Reports
+- Suggest New Content
+
+Without Human Intervention
+
+---
+
+# Niche Version (Recommended)
+
+## AI SEO Agent for Educational Institutes
+
+Target Customers:
+
+- Coaching Centers
+- Online Course Creators
+- Training Institutes
+- Universities
+
+Special Features:
+
+- Course Keyword Research
+- YouTube SEO
+- Google Business Optimization
+- Blog Generation
+- Student Lead Generation
+- Competitor Analysis
+
+Example:
+
+VedicSkill Academy SEO Agent
+
+Optimized for:
+
+- AI Courses
+- Data Science Courses
+- Python Training
+- Machine Learning Programs
+- Generative AI Certifications
+
+This niche-focused version can be launched first and later expanded into a general-purpose SEO platform.

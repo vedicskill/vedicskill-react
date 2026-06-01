@@ -1,6 +1,7 @@
 import { getTutorialStructure } from "../lib/content";
 import Link from "next/link";
 import { getFirstLesson } from "@/app/lib/course";
+import type { TutorialCourse, TutorialSection } from "@/app/types";
 
 export const metadata = {
   title: "Structured Tutorials - VedicSkill Academy",
@@ -54,7 +55,7 @@ export default function TutorialsPage() {
       <section className="px-6 md:px-8 py-16 bg-white dark:bg-[#0F0F0F]">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {data.courses.map((course: any) => (
+            {data.courses.map((course: TutorialCourse) => (
               <Link
                 key={course.slug}
                 href={`/tutorials/${course.slug}/${getFirstLesson(course)}`}
@@ -98,7 +99,7 @@ export default function TutorialsPage() {
                         />
                       </svg>
                       {course.sections.reduce(
-                        (total: number, section: any) =>
+                        (total: number, section: TutorialSection) =>
                           total + section.lessons.length,
                         0,
                       )}{" "}
