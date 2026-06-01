@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getAllPosts } from "@/app/lib/blog";
+import type { BlogPost } from "@/app/types";
 
 export const metadata = {
   title: "VedicSkill Blog - AI, Data Science & Engineering Insights",
@@ -33,7 +34,7 @@ export const metadata = {
 };
 
 export default function BlogPage() {
-  const posts = getAllPosts();
+  const posts: BlogPost[] = getAllPosts();
   const featuredPost = posts[0];
   const recentPosts = posts.slice(1, 4);
   const otherPosts = posts.slice(4);
@@ -105,7 +106,7 @@ export default function BlogPage() {
             <h2 className="text-3xl font-bold text-[#121212] dark:text-white mb-12 tracking-tight">Recent Articles</h2>
 
             <div className="grid md:grid-cols-3 gap-6">
-              {recentPosts.map((post: any) => (
+              {recentPosts.map((post: BlogPost) => (
                 <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
                   <div className="bg-white dark:bg-[#1A1A1A] border border-[#E8E8E8] dark:border-[#2A2A2A] rounded-2xl overflow-hidden hover:shadow-lg hover:border-[#064E3B] dark:hover:border-[#10B981] transition-all duration-300 h-full flex flex-col">
                     
@@ -147,7 +148,7 @@ export default function BlogPage() {
           <h2 className="text-3xl font-bold text-[#121212] dark:text-white mb-12">All Articles</h2>
 
           <div className="space-y-6">
-            {(otherPosts.length > 0 ? otherPosts : posts).map((post: any) => (
+            {(otherPosts.length > 0 ? otherPosts : posts).map((post: BlogPost) => (
               <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
                 <div className="border-b border-[#E8E8E8] dark:border-[#2A2A2A] pb-6 hover:pb-8 transition-all duration-300">
                   

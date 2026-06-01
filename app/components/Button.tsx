@@ -9,7 +9,6 @@ interface ButtonProps
   size?: ButtonSize;
   children: React.ReactNode;
   isLoading?: boolean;
-  asLink?: boolean;
   fullWidth?: boolean;
 }
 
@@ -40,7 +39,6 @@ export default function Button({
   size = 'md',
   children,
   isLoading = false,
-  asLink = false,
   fullWidth = false,
   disabled = false,
   className = '',

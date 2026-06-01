@@ -1,10 +1,11 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import type { BlogPost } from "@/app/types";
 
 const blogDir = path.join(process.cwd(), "content/blog");
 
-export function getAllPosts(): any[] {
+export function getAllPosts(): BlogPost[] {
   const files = fs.readdirSync(blogDir);
 
   const posts = files.map((file) => {
@@ -16,12 +17,11 @@ export function getAllPosts(): any[] {
     return {
       slug: file.replace(".md", ""),
       ...data,
-    };
+    } as BlogPost;
   });
 
   // Sort by date (latest first)
   return posts.sort(
-    (a: any, b: any) =>
-      new Date(b.date).getTime() - new Date(a.date).getTime()
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );
 }

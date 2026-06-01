@@ -1,6 +1,7 @@
-import { supabase } from "@/app/lib/supabase"
+import { supabase } from "@/app/lib/supabase";
+import type { CourseRecord } from "@/app/types";
 
-export async function getCourses() {
+export async function getCourses(): Promise<CourseRecord[]> {
   const { data, error } = await supabase
     .from("courses_with_active_coupons")
     .select("*")
@@ -10,7 +11,6 @@ export async function getCourses() {
     console.error("Supabase Error:", error);
     return [];
   }
-  console.log(data)
 
-  return data || [];
+  return (data as CourseRecord[]) || [];
 }

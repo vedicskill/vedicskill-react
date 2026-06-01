@@ -1,29 +1,39 @@
 import { getYaml } from "./yaml";
 import { getTutorialStructure } from "./content";
-export function getCourses() {
-  const data: any = getYaml("content/tutorials/tutorials.yaml");
+import type {
+  TutorialCourse,
+  TutorialStructure,
+  TutorialLesson,
+} from "@/app/types";
+
+export function getCourses(): TutorialCourse[] {
+  const data = getYaml("content/tutorials/tutorials.yaml") as TutorialStructure;
 
   return data.courses;
 }
 
-export function getCourseBySlug(slug: string) {
+export function getCourseBySlug(slug: string): TutorialCourse | undefined {
   const courses = getCourses();
 
-  return courses.find((course: any) => course.slug === slug);
+  return courses.find((course) => course.slug === slug);
 }
 
-export function getAllLessons(course: any) {
-  return course.sections.flatMap((section: any) => section.lessons);
+export function getAllLessons(course: TutorialCourse): TutorialLesson[] {
+  return course.sections.flatMap((section) =>
+    section.lessons.map((lesson) =>
+      typeof lesson === "string" ? { slug: lesson, title: lesson, order: 0 } : lesson,
+    ),
+  );
 }
 
-export function getFirstLesson(course: any) {
+export function getFirstLesson(course: TutorialCourse): string {
   const firstLesson = getAllLessons(course)[0];
 
-  return typeof firstLesson === "string" ? firstLesson : firstLesson.slug;
+  return firstLesson ? firstLesson.slug : "";
 }
 
-export function getCourse(courseSlug: string) {
-  const data: any = getTutorialStructure();
+export function getCourse(courseSlug: string): TutorialCourse | undefined {
+  const data = getTutorialStructure();
 
-  return data.courses.find((course: any) => course.slug === courseSlug);
+  return data.courses.find((course) => course.slug === courseSlug);
 }

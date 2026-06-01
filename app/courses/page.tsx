@@ -1,15 +1,17 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 import { getCourses } from "@/app/lib/courses";
+import type { CourseRecord } from "@/app/types";
 
 export default function CoursesPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [sortBy, setSortBy] = useState("popular");
 
-  const [courses, setCourses] = useState<any[]>([]);
+  const [courses, setCourses] = useState<CourseRecord[]>([]);
   const [loading, setLoading] = useState(true);
   const topCategories = [
       "Artificial Intelligence",
@@ -20,20 +22,20 @@ export default function CoursesPage() {
     ];
       
 
-  useEffect(() => {
-    loadCourses();
-  }, []);
-
-  async function loadCourses() {
+  const loadCourses = async () => {
     setLoading(true);
 
     const data = await getCourses();
-    console.log({"data":data})
+    console.log({ data });
 
     setCourses(data);
-
     setLoading(false);
-  }
+  };
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    loadCourses();
+  }, []);
 
   const categories = useMemo(() => {
     const keywordsSet = new Set<string>();
@@ -66,7 +68,7 @@ export default function CoursesPage() {
   );
 
   const filteredCourses = useMemo(() => {
-    let filtered =
+    const filtered =
       selectedCategory === "all"
         ? [...courses]
         : courses.filter((course) => {
@@ -90,30 +92,30 @@ export default function CoursesPage() {
 
     switch (sortBy) {
       case "rating":
-        filtered.sort((a, b) => b.rating - a.rating);
+        filtered.sort((a, b) => (b.rating || 0) - (a.rating || 0));
         break;
 
       case "price-low":
         filtered.sort(
-          (a, b) => a.course_price - b.course_price
+          (a, b) => (a.course_price || 0) - (b.course_price || 0)
         );
         break;
 
       case "price-high":
         filtered.sort(
-          (a, b) => b.course_price - a.course_price
+          (a, b) => (b.course_price || 0) - (a.course_price || 0)
         );
         break;
 
       case "students":
         filtered.sort(
-          (a, b) => b.students_rated - a.students_rated
+          (a, b) => (b.students_rated || 0) - (a.students_rated || 0)
         );
         break;
 
       default:
         filtered.sort(
-          (a, b) => b.students_rated - a.students_rated
+          (a, b) => (b.students_rated || 0) - (a.students_rated || 0)
         );
     }
 
@@ -130,7 +132,7 @@ export default function CoursesPage() {
           </h1>
 
           <p className="text-[#666666] dark:text-[#A0A0A0] text-lg max-w-2xl leading-relaxed">
-            Curated courses from industry experts. Learn skills that matter.
+            Browse curated AI, Data Science, and Engineering courses designed to build real projects, technical confidence, and career momentum.
           </p>
         </div>
       </section>
@@ -274,12 +276,13 @@ export default function CoursesPage() {
 
                   {/* Image */}
                   <div className="w-full h-56 bg-[#F5F5F5] dark:bg-[#2A2A2A] relative overflow-hidden">
-
                     {course.course_image ? (
-                      <img
+                      <Image
                         src={course.course_image}
                         alt={course.course_name}
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 33vw"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
@@ -454,8 +457,8 @@ export default function CoursesPage() {
 
                         {/* Original Price */}
                         {course.course_base_price &&
-                          course.course_base_price >
-                            course.course_price && (
+                          course.course_price !== undefined &&
+                          course.course_base_price > course.course_price && (
                             <span className="text-lg text-[#999999] dark:text-[#707070] line-through">
 
                               {course.currency_symbol || "$"}

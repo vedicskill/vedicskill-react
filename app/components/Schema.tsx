@@ -1,7 +1,7 @@
 'use client';
 
 interface SchemaProps {
-  data: Record<string, any>;
+  data: Record<string, unknown>;
 }
 
 /**

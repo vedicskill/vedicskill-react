@@ -1,33 +1,35 @@
+import Image from "next/image";
 import Link from "next/link";
+import type { TutorialSection } from "@/app/types";
 
 import { getTutorialStructure } from "@/app/lib/content";
-import { getAllPosts } from "@/app/lib/blog";
 import { getFirstLesson } from "@/app/lib/course";
 
 import { getCourses } from "@/app/lib/courses";
 
 export const metadata = {
   title:
-    "Vedicskill - AI, Data Science & Engineering Online Learning Platform",
+    "VedicSkill Academy | Online Courses in AI, Data Science & Engineering",
 
   description:
-    "Learn AI, Data Science, and Engineering with comprehensive tutorials, real-world projects, and structured learning paths. Master industry-ready skills through hands-on experience and expert guidance.",
+    "VedicSkill Academy offers career-focused online courses in AI, Data Science, and Engineering. Learn with structured pathways, live projects, and expert guidance to build practical skills.",
 
   keywords: [
-    "AI learning",
-    "Data Science tutorials",
-    "Engineering courses",
-    "Online education",
-    "Machine learning",
-    "Python learning",
+    "AI course",
+    "Data Science course",
+    "Engineering course",
+    "online courses",
+    "machine learning training",
+    "career-ready skills",
+    "VedicSkill Academy",
   ],
 
   openGraph: {
     title:
-      "Vedicskill - Master AI, Data Science & Engineering",
+      "VedicSkill Academy - Master AI, Data Science & Engineering Courses",
 
     description:
-      "Comprehensive online tutorials and courses in AI, Data Science, and Engineering. Start your learning journey today with structured paths.",
+      "Browse practical online courses in AI, Data Science, Machine Learning, and Engineering. Start your career-ready learning journey with VedicSkill Academy.",
 
     type: "website",
 
@@ -47,10 +49,10 @@ export const metadata = {
     card: "summary_large_image",
 
     title:
-      "Vedicskill - Learn AI & Data Science",
+      "VedicSkill Academy - Learn AI, Data Science & Engineering",
 
     description:
-      "Master AI, Data Science, and Engineering with practical tutorials and projects.",
+      "Master job-ready skills with practical courses, hands-on projects, and expert-led learning at VedicSkill Academy.",
   },
 
   alternates: {
@@ -60,8 +62,6 @@ export const metadata = {
 
 export default async function HomePage() {
   const tutorials = getTutorialStructure();
-
-  const posts = getAllPosts().slice(0, 3);
 
   const premiumCourses = await getCourses();
 
@@ -76,14 +76,14 @@ export default async function HomePage() {
           {/* Heading */}
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight max-w-4xl text-[#121212] dark:text-white tracking-tight">
 
-            Learn AI, Data Science & Engineering
+            Build Your Career with Practical Courses
 
           </h1>
 
           {/* Subtext */}
           <p className="mt-6 md:mt-8 text-lg md:text-xl text-[#666666] dark:text-[#A0A0A0] max-w-2xl leading-relaxed">
 
-            Structured tutorials, real-world projects, and practical learning paths to build industry-ready skills with hands-on experience.
+            Explore curated online courses in AI, Data Science, and Engineering backed by real projects, expert guidance, and career-focused outcomes.
 
           </p>
 
@@ -91,11 +91,11 @@ export default async function HomePage() {
           <div className="mt-10 md:mt-12 flex flex-wrap gap-4">
 
             <Link
-              href="/tutorials"
+              href="/courses"
               className="inline-flex items-center justify-center gap-2 bg-[#064E3B] text-white px-6 py-3.5 rounded-2xl font-semibold hover:bg-[#053D2E] active:scale-95 transition-all duration-500 ease-out dark:bg-[#10B981] dark:text-[#121212] dark:hover:bg-[#059669]"
             >
 
-              Explore Tutorials
+              Explore Courses
 
             </Link>
 
@@ -122,7 +122,7 @@ export default async function HomePage() {
 
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#121212] dark:text-white mb-6 tracking-tight">
 
-              Featured Tutorials
+              Featured Courses
 
             </h2>
 
@@ -130,7 +130,7 @@ export default async function HomePage() {
 
             <p className="text-[#666666] dark:text-[#A0A0A0] text-lg leading-relaxed">
 
-              Structured learning paths to master real-world skills
+              Curated course pathways designed for practical learning and career growth.
 
             </p>
 
@@ -139,7 +139,7 @@ export default async function HomePage() {
           {/* Tutorials Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            {tutorials.courses.map((course: any) => (
+            {tutorials.courses.map((course) => (
               <Link
                 key={course.slug}
                 href={`/tutorials/${course.slug}/${getFirstLesson(course)}`}
@@ -167,7 +167,7 @@ export default async function HomePage() {
                     <span className="text-xs text-[#999999] dark:text-[#707070]">
 
                       {course.sections.reduce(
-                        (total: number, section: any) =>
+                        (total: number, section: TutorialSection) =>
                           total + section.lessons.length,
                         0,
                       )}{" "}
@@ -216,16 +216,15 @@ export default async function HomePage() {
           {/* Courses Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            {premiumCourses.slice(0, 6).map((course: any) => (
+            {premiumCourses.slice(0, 6).map((course) => (
               <article
                 key={course.course_id}
                 className="group bg-white dark:bg-[#0F0F0F] border border-[#E8E8E8] dark:border-[#2A2A2A] rounded-2xl overflow-hidden hover:shadow-xl hover:border-[#064E3B] dark:hover:border-[#10B981] transition-all duration-500 ease-out flex flex-col"
               >
 
                 {/* Image */}
-                <div className="w-full h-52 overflow-hidden bg-[#F5F5F5] dark:bg-[#1A1A1A]">
-
-                  <img
+                <div className="relative w-full h-52 overflow-hidden bg-[#F5F5F5] dark:bg-[#1A1A1A]">
+                  <Image
                     src={
                       course.course_image &&
                       course.course_image.trim() !== ""
@@ -233,10 +232,10 @@ export default async function HomePage() {
                         : "https://placehold.co/600x400?text=Course"
                     }
                     alt={course.course_name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
-
                 </div>
 
                 {/* Content */}
@@ -400,8 +399,8 @@ export default async function HomePage() {
                       </span>
 
                       {course.course_base_price &&
-                        course.course_base_price >
-                          course.course_price && (
+                        course.course_price !== undefined &&
+                        course.course_base_price > course.course_price && (
                           <span className="text-lg text-[#999999] dark:text-[#707070] line-through">
 
                             {course.currency_symbol || "$"}
