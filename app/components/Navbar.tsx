@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import { ThemeToggle } from "@/app/components/theme-toggle";
 
 const navigationLinks = [
-  { href: '/tutorials', label: 'Tutorials' },
+  { href: 'https://courses.vedicskill.com/', label: 'Tutorials' },
   { href: '/courses', label: 'Courses' },
   { href: '/blog', label: 'Blog' },
   { href: '/about', label: 'About' },
